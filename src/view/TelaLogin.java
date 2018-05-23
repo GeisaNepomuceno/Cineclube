@@ -5,7 +5,7 @@
  */
 package view;
 
-import SDI.TelaPrincipalSDI;
+import view.TelaPrincipalSDI;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
