@@ -6,7 +6,7 @@
 package view;
 
 import view.TelaAtualizarCadastroFilmes;
-import view.TelaAtualizarCadastroUsuario;
+import view.TelaAtualizarCadastroFuncionario;
 import view.TelaCadastroFilmes;
 import view.TelaCadastroUsuarioSDI;
 import view.TelaExcluirFilmes;
@@ -383,7 +383,7 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        new TelaAtualizarCadastroUsuario().setVisible(true);
+        new TelaAtualizarCadastroFuncionario().setVisible(true);
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -404,7 +404,7 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
+       new TelaCadastroCliente().setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
