@@ -9,8 +9,8 @@ import view.TelaAtualizarCadastroFilmes;
 import view.TelaAtualizarCadastroUsuario;
 import view.TelaCadastroFilmes;
 import view.TelaCadastroUsuarioSDI;
-import view.TelaExcluirCadastroFilmes;
-import view.TelaExcluirCadastroFunc;
+import view.TelaExcluirFilmes;
+import view.TelaExcluirFuncionario;
 
 /**
  *
@@ -379,7 +379,7 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        new TelaCadastroClienteExterno().setVisible(true);
+        new TelaCadastroFuncionario().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -388,7 +388,7 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        new TelaExcluirCadastroFunc().setVisible(true);
+        new TelaExcluirFuncionario().setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -396,7 +396,7 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-       new TelaExcluirCadastroFilmes().setVisible(true);
+       new TelaExcluirFilmes().setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
