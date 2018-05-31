@@ -11,8 +11,8 @@ package integracaobd;
  */
 public class TestaConexaoBD {
     public static void main(String[] args) {
-    ConexaoBD bd = new ConexaoBD(); 
-    bd.getConnection(); 
-    bd.close(); 
+    ConexaoBD bd = new ConexaoBD();   
+    bd.getConnection();      
+    bd.close();  
     }
 }

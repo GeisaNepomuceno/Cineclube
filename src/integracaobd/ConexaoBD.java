@@ -17,9 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConexaoBD {
-	String DATABASE = "cineclub";
-    String LOGIN = "Saito";
-    String SENHA = "}5KtN2w/";
+    String DATABASE = "cineclub";
+    String LOGIN = "YuriQueriquelli";
+    String SENHA = "xrQh&D4V";
     String URL = "jdbc:sqlserver://picineclub.database.windows.net:1433;databasename="+DATABASE;
     String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     Connection con = null;
