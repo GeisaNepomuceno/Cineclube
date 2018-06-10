@@ -29,7 +29,7 @@ public class ProdutoDAO{
 		}
 		catch(SQLException erro) {
 			int pos = erro.toString().indexOf("PRIMARY KEY");
-			if(pos>=0) { //inicio da alteração
+			if(pos>=0) { //inicio da alteraï¿½ï¿½o
 				sql = "update produtos set nome=?, preco=?, estoque=? "+
 			          "where codigo = ?";
 				try {
@@ -42,7 +42,7 @@ public class ProdutoDAO{
 					men = "Produto alterado com sucesso!";
 				}
 				catch(SQLException e) {
-					men = "Falha na alteração!";
+					men = "Falha na alteraï¿½ï¿½o!";
 				}
 			}
 		}
@@ -57,26 +57,26 @@ public class ProdutoDAO{
 		sql = "delete from produtos where codigo = ?";
 		try {
 			
-			bd.getConnection(); // conexão com o banco
+			bd.getConnection(); // conexï¿½o com o banco
 			bd.st = bd.con.prepareStatement(sql);
 			
-			// número um é para ser o primeiro parametro, da esquerda para a direita.
-			// esse parametro 1 server como referencia do parametro lá em cima, do código, ou seja,
-			// esse parametro vai no lugar da interrogação
+			// nï¿½mero um ï¿½ para ser o primeiro parametro, da esquerda para a direita.
+			// esse parametro 1 server como referencia do parametro lï¿½ em cima, do cï¿½digo, ou seja,
+			// esse parametro vai no lugar da interrogaï¿½ï¿½o
 			bd.st.setInt(1,  codigo); 
 			int r = bd.st.executeUpdate(); // retorna a quantidade de linhas que ele excluiu
 			
 			if (r == 1) {
 				
-				men = "Produto excluído com sucesso";
+				men = "Produto excluÃ­do com sucesso";
 			} else {
 				
-				men = "Produto não encontrado!";
+				men = "Produto nÃ£o encontrado!";
 			}
 			
 		} catch (Exception e) {
 
-			men = "Falha na exlusão" + e.toString();
+			men = "Falha na exlusÃ£o" + e.toString();
 		} finally {
 			bd.close();
 		}
@@ -93,10 +93,10 @@ public class ProdutoDAO{
 		
 		try {
 			
-			bd.getConnection(); // conexão com o banco
+			bd.getConnection(); // conexï¿½o com o banco
 			bd.st = bd.con.prepareStatement(sql);
 			bd.st.setInt(1,  codigo); 
-			bd.rs = bd.st.executeQuery(); // rs um objeto em memória que representa uma tabela com os dados do select, a primeira linha é o header da coluna
+			bd.rs = bd.st.executeQuery(); // rs um objeto em memï¿½ria que representa uma tabela com os dados do select, a primeira linha ï¿½ o header da coluna
 			
 			
 			// Ou retorna um produto ou um objeto nulo
@@ -125,14 +125,14 @@ public class ProdutoDAO{
 		
 		List<Produto> lista = new ArrayList<Produto>(); // Criar uma lista de produtos
 		
-		// ler o banco do começo ao fim
+		// ler o banco do comeï¿½o ao fim
 		sql = "select * from produtos";
 		
 		try {
 			
-			bd.getConnection(); // conexão com o banco
+			bd.getConnection(); // conexï¿½o com o banco
 			bd.st = bd.con.prepareStatement(sql);
-			bd.rs = bd.st.executeQuery(); // rs um objeto em memória que representa uma tabela com os dados do select, a primeira linha é o header da coluna
+			bd.rs = bd.st.executeQuery(); // rs um objeto em memï¿½ria que representa uma tabela com os dados do select, a primeira linha ï¿½ o header da coluna
 			
 			while (bd.rs.next()) {
 				

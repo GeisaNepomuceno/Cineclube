@@ -1,4 +1,4 @@
-package view;
+package view1;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -21,7 +21,7 @@ import model.ProdutoDAO;
 import services.BD;
 import services.TableModel;
 
-public class GuiProdutoGradeTela extends JPanel {
+public class GuiProdutoGradeTela extends javax.swing.JPanel {
 	private JButton btNovo;
 	private JButton btSalvar;
 	private JButton btBuscar;
@@ -58,7 +58,7 @@ public class GuiProdutoGradeTela extends JPanel {
 		btBuscar = new JButton("Buscar");
 		lbCodigo = new JLabel("Codigo");
 		lbNome = new JLabel("Nome");
-		lbPreco = new JLabel("Preço Unitario");
+		lbPreco = new JLabel("Preï¿½o Unitario");
 		lbEstoque = new JLabel("Estoque");
 		btExcluir = new JButton("Excluir");
 		tfCodigo = new JTextField(5);
@@ -193,7 +193,7 @@ public class GuiProdutoGradeTela extends JPanel {
 					tfPreco.setText("" + p.getPreco());
 					tfEstoque.setText("" + p.getEstoque());
 				} else {
-					JOptionPane.showMessageDialog(btBuscar, "Produto não encontrado");
+					JOptionPane.showMessageDialog(btBuscar, "Produto nï¿½o encontrado");
 					limparCaixas();
 				}
 			}
@@ -226,7 +226,7 @@ public class GuiProdutoGradeTela extends JPanel {
 
 				int r = JOptionPane.showConfirmDialog(btExcluir, "Tem certeza?");
 				
-				if (r == 0) { // significa que o usuário apertou o primeiro botão, o botão sim
+				if (r == 0) { // significa que o usuï¿½rio apertou o primeiro botï¿½o, o botï¿½o sim
 					
 					JOptionPane.showMessageDialog(btExcluir, pdao.excluir(Integer.parseInt(tfCodigo.getText())));
 					
