@@ -15,5 +15,23 @@ public class Cliente {
 	private int celular;
 	private char sexo; 
 	
+	public void mostrar() {
+		System.out.println("["+codigo+","+nome+","+endereco+","+cidade+"]");
+	}
+	
+//	public String toString() {
+//		return ("["+codigo+","+nome+","+preco+","+estoque+"]");
+//	}
+//	
+//	public Produto() {
+//	}
+//	
+//	public Produto(int codigo, String nome, double preco, int estoque) {
+//		this.codigo = codigo;
+//		this.nome = nome;
+//		this.preco = preco;
+//		this.estoque = estoque;
+//	}
+	
 	
 }
