@@ -17,10 +17,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConexaoBD {
-    String DATABASE = "cineclub";
-    String LOGIN = "YuriQueriquelli";
-    String SENHA = "xrQh&D4V";
-    String URL = "jdbc:sqlserver://picineclub.database.windows.net:1433;databasename="+DATABASE;
+    String DATABASE = "cineclube";
+    String LOGIN = "Geisa";
+    String SENHA = "e#ELu3:*";
+    String URL = "jdbc:sqlserver://picineclube.database.windows.net:1433;databasename="+DATABASE;
     String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     Connection con = null;
     PreparedStatement st = null; 

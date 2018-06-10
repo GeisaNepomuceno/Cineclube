@@ -36,7 +36,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jiCPF6 = new javax.swing.JFormattedTextField();
         jLabel29 = new javax.swing.JLabel();
-        jEndereço3 = new javax.swing.JTextField();
+        jEndereco = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jCidade3 = new javax.swing.JTextField();
@@ -127,7 +127,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel40)
                             .addComponent(jiCPF6, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                             .addComponent(jiRG3)
-                            .addComponent(jEndereço3))
+                            .addComponent(jEndereco))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel44)
@@ -164,7 +164,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel40)
                         .addGap(1, 1, 1)
-                        .addComponent(jEndereço3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -345,7 +345,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField jBairro3;
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField jCidade3;
-    private javax.swing.JTextField jEndereço3;
+    private javax.swing.JTextField jEndereco;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;

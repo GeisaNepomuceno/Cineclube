@@ -7,17 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BD {
-
-	private final String LOGIN = "sa";
-	private final String SENHA = "123456";
-	private final String DRIVER ="com.microsoft.sqlserver.jdbc.SQLServerDriver"; 
-	private final String DATABASE = "java";
-	private final String URL = 
-		 "jdbc:sqlserver://localhost:1433;databasename="+DATABASE;
-	public Connection con = null;
-	public PreparedStatement st = null;
-	public ResultSet rs = null;
 	
+	private final String DATABASE = "cineclube";
+	private final String LOGIN = "Geisa";
+	private final String SENHA = "e#ELu3:*";
+	private final String URL = "jdbc:sqlserver://picineclube.database.windows.net:1433;databasename="+DATABASE;
+	private final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	public Connection con = null;
+	public PreparedStatement st = null; 
+	public  ResultSet rs = null;
 	
 	public boolean getConnection() {
 		try {

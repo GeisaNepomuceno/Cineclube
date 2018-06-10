@@ -100,7 +100,7 @@ public class GuiProdutoGradeTela extends javax.swing.JPanel {
 
 		// Componentes relacionados a grade
 		table = new JTable();
-		atualizarGrade();
+//		atualizarGrade();
 		
 		JScrollPane scroller = new JScrollPane(table);
 		scroller.setBounds(5, 220, 580, 200);
@@ -108,7 +108,7 @@ public class GuiProdutoGradeTela extends javax.swing.JPanel {
 	}
 	
 	public void atualizarGrade() {
-		model = TableModel.getModel(bd, "select * from produtos");
+		model = TableModel.getModel(bd, "select * from cliente");
 		table.setModel(model);
 		
 		table.getColumnModel().getColumn(0).setPreferredWidth(20);
@@ -226,7 +226,7 @@ public class GuiProdutoGradeTela extends javax.swing.JPanel {
 
 				int r = JOptionPane.showConfirmDialog(btExcluir, "Tem certeza?");
 				
-				if (r == 0) { // significa que o usuï¿½rio apertou o primeiro botï¿½o, o botï¿½o sim
+				if (r == 0) { // significa que o usuário apertou o primeiro botãoo, o botão sim
 					
 					JOptionPane.showMessageDialog(btExcluir, pdao.excluir(Integer.parseInt(tfCodigo.getText())));
 					
