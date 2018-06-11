@@ -16,7 +16,7 @@ public class Cliente {
 	private char sexo; 
 	
 	public void mostrar() {
-		System.out.println("["+codigo+","+nome+","+endereco+","+cidade+"]");
+		System.out.println("["+codigo+","+nome+","+endereco+","+cidade+","+bairro+"]");
 	}
 	
 //	public String toString() {
