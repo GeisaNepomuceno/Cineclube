@@ -193,7 +193,7 @@ public class GuiProdutoGradeTela extends javax.swing.JPanel {
 					tfPreco.setText("" + p.getPreco());
 					tfEstoque.setText("" + p.getEstoque());
 				} else {
-					JOptionPane.showMessageDialog(btBuscar, "Produto nï¿½o encontrado");
+					JOptionPane.showMessageDialog(btBuscar, "Produto não encontrado");
 					limparCaixas();
 				}
 			}

@@ -22,9 +22,9 @@ public class ConexaoBD {
     String SENHA = "e#ELu3:*";
     String URL = "jdbc:sqlserver://picineclube.database.windows.net:1433;databasename="+DATABASE;
     String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    Connection con = null;
-    PreparedStatement st = null; 
-    ResultSet rs = null;
+    public Connection con = null;
+    public PreparedStatement st = null; 
+    public ResultSet rs = null;
     
     public boolean getConnection() {
     	try {

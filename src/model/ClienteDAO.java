@@ -4,67 +4,66 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import integracaobd.BD;
+import integracaobd.ConexaoBD;
 
 public class ClienteDAO {
 	
 	private String men, sql; 
-	private BD bd; 
+	private ConexaoBD bd; 
 	
 	public ClienteDAO() {
-		bd = new BD();
+		bd = new ConexaoBD();
 	}
 	
 	public String salvar(Cliente c) {
-		sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "set dateformat dmy insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, c.getCodigo());
-			bd.st.setString(2, c.getNome());
-			bd.st.setString(3, c.getEndereco());
-			bd.st.setString(4, c.getCidade());
-			bd.st.setString(5, c.getBairro());
-			bd.st.setInt(6, c.getCep());
-			bd.st.setString(7, c.getRg());
-			bd.st.setString(8, c.getCpf());
-			bd.st.setString(9, c.getDataNasc());
-			bd.st.setInt(10, c.getTelefone());
-			bd.st.setString(11, c.getEmail());
-			bd.st.setInt(12, c.getCelular());
-			bd.st.setString(13, c.getSexo());
+			bd.st.setString(1, c.getNome());
+			bd.st.setString(2, c.getEndereco());
+			bd.st.setString(3, c.getCidade());
+			bd.st.setString(4, c.getBairro());
+			bd.st.setString(5, c.getCep());
+			bd.st.setString(6, c.getRg());
+			bd.st.setString(7, c.getCpf());
+			bd.st.setString(8, c.getDataNasc());
+			bd.st.setString(9, c.getTelefone());
+			bd.st.setString(10, c.getEmail());
+			bd.st.setString(11, c.getCelular());
+			bd.st.setString(12, c.getSexo());
 			
 			men = "Cliente cadastrado com sucesso!";
 		}
-		catch (SQLException erro) {
-				int pos = erro.toString().indexOf("PRIMARY KEY");
-				if(pos>=0) { //inicio da alteração
-					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
-				          "where id_cliente = ?";
-					try {
-						
-						bd.st.setString(1, c.getNome());
-						bd.st.setString(2, c.getEndereco());
-						bd.st.setString(3, c.getCidade());
-						bd.st.setString(4, c.getBairro());
-						bd.st.setInt(5, c.getCep());
-						bd.st.setString(6, c.getRg());
-						bd.st.setString(7, c.getCpf());
-						bd.st.setString(8, c.getDataNasc());
-						bd.st.setInt(9, c.getTelefone());
-						bd.st.setString(10, c.getEmail());
-						bd.st.setInt(11, c.getCelular());
-						bd.st.setString(12, c.getSexo());	
-						bd.st.setInt(13, c.getCodigo());
-						bd.st.executeUpdate();
-						men = "Cliente alterado com sucesso!";
-					}
+//		catch (SQLException erro) {
+//				int pos = erro.toString().indexOf("PRIMARY KEY");
+//				if(pos>=0) { //inicio da alteração
+//					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+//				          "where id_cliente = ?";
+//					try {
+//						
+//						bd.st.setString(1, c.getNome());
+//						bd.st.setString(2, c.getEndereco());
+//						bd.st.setString(3, c.getCidade());
+//						bd.st.setString(4, c.getBairro());
+//						bd.st.setString(5, c.getCep());
+//						bd.st.setString(6, c.getRg());
+//						bd.st.setString(7, c.getCpf());
+//						bd.st.setString(8, c.getDataNasc());
+//						bd.st.setString(9, c.getTelefone());
+//						bd.st.setString(10, c.getEmail());
+//						bd.st.setInt(11, c.getCelular());
+//						bd.st.setString(12, c.getSexo());	
+////						bd.st.setInt(13, c.getCodigo());
+//						bd.st.executeUpdate();
+//						men = "Cliente alterado com sucesso!";
+//					}
 					catch(SQLException e) {
 						men = "Falha na alteração!";
 					}
-				}
-			}
+				
+//			}
 			finally {
 				bd.close();
 			}	
@@ -104,7 +103,7 @@ public class ClienteDAO {
 		
 	}
 	
-	public Cliente Localizar(int codigo) {
+	public Cliente localizar(int codigo) {
 		
 		sql = "select * from cliente where id_cliente = ?";
 		
@@ -118,7 +117,7 @@ public class ClienteDAO {
 			bd.rs = bd.st.executeQuery();
 			
 			if(bd.rs.next()) {
-				c.setCodigo(bd.rs.getInt("codigo"));
+				c.setCodigo(bd.rs.getInt("id_cliente"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
@@ -165,7 +164,7 @@ public class ClienteDAO {
 				
 				Cliente c = new Cliente();
 				
-				c.setCodigo(bd.rs.getInt("codigo"));
+				c.setCodigo(bd.rs.getInt("id_cliente"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
