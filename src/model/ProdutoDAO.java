@@ -29,7 +29,7 @@ public class ProdutoDAO{
 		}
 		catch(SQLException erro) {
 			int pos = erro.toString().indexOf("PRIMARY KEY");
-			if(pos>=0) { //inicio da alteraï¿½ï¿½o
+			if(pos>=0) { //inicio da alteração
 				sql = "update produtos set nome=?, preco=?, estoque=? "+
 			          "where codigo = ?";
 				try {
@@ -42,7 +42,7 @@ public class ProdutoDAO{
 					men = "Produto alterado com sucesso!";
 				}
 				catch(SQLException e) {
-					men = "Falha na alteraï¿½ï¿½o!";
+					men = "Falha na alteração!";
 				}
 			}
 		}
