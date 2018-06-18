@@ -169,7 +169,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel49">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Digite o ID existente do cliente que deseja alterar:"/>
+            <Property name="text" type="java.lang.String" value="Digite o ID existente do funcion&#xe1;rio que deseja alterar:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfNome3">
@@ -271,7 +271,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar"/>
+        <Property name="text" type="java.lang.String" value="Atualizar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

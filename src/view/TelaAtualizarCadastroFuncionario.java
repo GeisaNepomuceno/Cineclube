@@ -36,7 +36,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jiCPF6 = new javax.swing.JFormattedTextField();
         jLabel29 = new javax.swing.JLabel();
-        jEndereço3 = new javax.swing.JTextField();
+        jEndereco = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jCidade3 = new javax.swing.JTextField();
@@ -59,7 +59,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Atualizar cadastro de funcionário:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
-        jLabel49.setText("Digite o ID existente do cliente que deseja alterar:");
+        jLabel49.setText("Digite o ID existente do funcionário que deseja alterar:");
 
         jLabel27.setText("Nome:");
 
@@ -127,7 +127,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel40)
                             .addComponent(jiCPF6, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                             .addComponent(jiRG3)
-                            .addComponent(jEndereço3))
+                            .addComponent(jEndereco))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel44)
@@ -164,7 +164,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel40)
                         .addGap(1, 1, 1)
-                        .addComponent(jEndereço3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -193,7 +193,7 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Cadastrar");
+        jButton1.setText("Atualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -291,13 +291,13 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
         //        JOptionPane.showMessageDialog(null, "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
             //        + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
         //
-        if(tfNome.getText().equals("") || jiData.getText().equals("") || jcSexo.getSelectedItem().toString().equals("") || jiCPF.getText().equals("") || jiCelular.getText().equals("") || tfEmail.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Cadastro incompleto, por favor, preencha todos os campos!");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!\n" + "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
-                + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
-        }
+//        if(tfNome.getText().equals("") || jiData.getText().equals("") || jcSexo.getSelectedItem().toString().equals("") || jiCPF.getText().equals("") || jiCelular.getText().equals("") || tfEmail.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Cadastro incompleto, por favor, preencha todos os campos!");
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!\n" + "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
+//                + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
+//        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -342,53 +342,13 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jBairro;
-    private javax.swing.JTextField jBairro1;
-    private javax.swing.JTextField jBairro2;
     private javax.swing.JTextField jBairro3;
     private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jCidade;
-    private javax.swing.JTextField jCidade1;
-    private javax.swing.JTextField jCidade2;
     private javax.swing.JTextField jCidade3;
-    private javax.swing.JTextField jEndereço;
-    private javax.swing.JTextField jEndereço1;
-    private javax.swing.JTextField jEndereço2;
-    private javax.swing.JTextField jEndereço3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
+    private javax.swing.JTextField jEndereco;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -399,54 +359,17 @@ public class TelaAtualizarCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JComboBox<String> jcSexo;
-    private javax.swing.JComboBox<String> jcSexo1;
-    private javax.swing.JComboBox<String> jcSexo2;
     private javax.swing.JComboBox<String> jcSexo3;
-    private javax.swing.JFormattedTextField jiCPF;
-    private javax.swing.JFormattedTextField jiCPF1;
-    private javax.swing.JFormattedTextField jiCPF2;
-    private javax.swing.JFormattedTextField jiCPF3;
-    private javax.swing.JFormattedTextField jiCPF4;
-    private javax.swing.JFormattedTextField jiCPF5;
     private javax.swing.JFormattedTextField jiCPF6;
     private javax.swing.JFormattedTextField jiCPF7;
-    private javax.swing.JFormattedTextField jiCelular;
-    private javax.swing.JFormattedTextField jiCelular1;
     private javax.swing.JFormattedTextField jiCelular2;
-    private javax.swing.JFormattedTextField jiData;
-    private javax.swing.JFormattedTextField jiData1;
-    private javax.swing.JFormattedTextField jiData2;
     private javax.swing.JFormattedTextField jiData3;
-    private javax.swing.JFormattedTextField jiRG;
-    private javax.swing.JFormattedTextField jiRG1;
-    private javax.swing.JFormattedTextField jiRG2;
     private javax.swing.JFormattedTextField jiRG3;
-    private javax.swing.JFormattedTextField jiTelefone;
-    private javax.swing.JFormattedTextField jiTelefone1;
     private javax.swing.JFormattedTextField jiTelefone2;
-    private javax.swing.JTextField tfEmail;
-    private javax.swing.JTextField tfEmail1;
     private javax.swing.JTextField tfEmail2;
-    private javax.swing.JTextField tfID;
-    private javax.swing.JTextField tfID1;
-    private javax.swing.JTextField tfID2;
     private javax.swing.JTextField tfID3;
-    private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfNome1;
-    private javax.swing.JTextField tfNome2;
     private javax.swing.JTextField tfNome3;
     // End of variables declaration//GEN-END:variables
 }
