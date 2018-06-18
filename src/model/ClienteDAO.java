@@ -38,7 +38,7 @@ public class ClienteDAO {
 		}
 //		catch (SQLException erro) {
 //				int pos = erro.toString().indexOf("PRIMARY KEY");
-//				if(pos>=0) { //inicio da alteração
+//				if(pos>=0) { //inicio da alteraï¿½ï¿½o
 //					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
 //				          "where id_cliente = ?";
 //					try {
@@ -59,15 +59,13 @@ public class ClienteDAO {
 //						bd.st.executeUpdate();
 //						men = "Cliente alterado com sucesso!";
 //					}
-					catch(SQLException e) {
-						men = "Falha na alteração!";
-					}
-				
-//			}
-			finally {
-				bd.close();
-			}	
-			return men;
+		catch(SQLException e) {
+                    men = "Falha na alteraÃ§Ã£o!";
+		}
+		finally {
+                    bd.close();
+		}	
+		return men;
 		}
 	
 	public String excluir(int codigo) {
@@ -84,16 +82,16 @@ public class ClienteDAO {
 			
 			if (r==1) {
 				
-				men = "Excluído com sucesso!";		
+				men = "Excluï¿½do com sucesso!";		
 				
 			} else {
 				
-				men = "Cliente não encontrado!";
+				men = "Cliente nï¿½o encontrado!";
 			}
 			
 		} catch (Exception e) {
 			
-			men = "Falha na exclusão" + e.toString();
+			men = "Falha na exclusï¿½o" + e.toString();
 		}
 		finally {
 			bd.close();
@@ -117,18 +115,18 @@ public class ClienteDAO {
 			bd.rs = bd.st.executeQuery();
 			
 			if(bd.rs.next()) {
-				c.setCodigo(bd.rs.getInt("id_cliente"));
+				
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
 				c.setBairro(bd.rs.getString("bairro"));
-				c.setCep(bd.rs.getInt("cep"));
+				c.setCep(bd.rs.getString("cep"));
 				c.setRg(bd.rs.getString("rg"));
 				c.setCpf(bd.rs.getString("cpf"));
 				c.setDataNasc(bd.rs.getString("data_nascimento"));
-				c.setTelefone(bd.rs.getInt("telefone"));
+				c.setTelefone(bd.rs.getString("telefone"));
 				c.setEmail(bd.rs.getString("email"));
-				c.setCelular(bd.rs.getInt("celular"));
+				c.setCelular(bd.rs.getString("celular"));
 				c.setSexo(bd.rs.getString("sexo"));
 					
 			}
@@ -151,7 +149,7 @@ public class ClienteDAO {
 		
 		List<Cliente> lista = new ArrayList<Cliente>(); // Criar uma lista de produtos
 		
-		// ler o banco do começo ao fim
+		// ler o banco do comeï¿½o ao fim
 		sql = "select * from cliente";
 		
 		try {
@@ -164,18 +162,18 @@ public class ClienteDAO {
 				
 				Cliente c = new Cliente();
 				
-				c.setCodigo(bd.rs.getInt("id_cliente"));
+				
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
 				c.setBairro(bd.rs.getString("bairro"));
-				c.setCep(bd.rs.getInt("cep"));
+				c.setCep(bd.rs.getString("cep"));
 				c.setRg(bd.rs.getString("rg"));
 				c.setCpf(bd.rs.getString("cpf"));
 				c.setDataNasc(bd.rs.getString("data_nascimento"));
-				c.setTelefone(bd.rs.getInt("telefone"));
+				c.setTelefone(bd.rs.getString("telefone"));
 				c.setEmail(bd.rs.getString("email"));
-				c.setCelular(bd.rs.getInt("celular"));
+				c.setCelular(bd.rs.getString("celular"));
 				c.setSexo(bd.rs.getString("sexo"));
 				
 				lista.add(c); // adicionando o produto na lista
