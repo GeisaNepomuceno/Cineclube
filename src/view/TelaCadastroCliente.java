@@ -38,7 +38,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jiRG = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        jEndereco = new javax.swing.JTextField();
+        jEndereço = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jCidade = new javax.swing.JTextField();
@@ -113,7 +113,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                     .addComponent(jiRG, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jEndereço, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jiCPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                         .addComponent(jCidade, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
@@ -150,7 +150,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel9)
                         .addGap(1, 1, 1)
-                        .addComponent(jEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -331,7 +331,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jBairro;
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField jCidade;
-    private javax.swing.JTextField jEndereco;
+    private javax.swing.JTextField jEndereço;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
