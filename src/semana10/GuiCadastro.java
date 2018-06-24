@@ -14,9 +14,9 @@ public class GuiCadastro extends JPanel {
     private JTextField tfNome;
     private ArquivoTexto arquivoTexto;
 
-    // Por padrão o método construtor já vem com a inicialização dos componentes, atributos e métodos
-    // O que será feito, será separar o que é tela de funcionalidade
-    // Seguir um padrão
+    // Por padrï¿½o o mï¿½todo construtor jï¿½ vem com a inicializaï¿½ï¿½o dos componentes, atributos e mï¿½todos
+    // O que serï¿½ feito, serï¿½ separar o que ï¿½ tela de funcionalidade
+    // Seguir um padrï¿½o
     public GuiCadastro() { 
     	
     	inicializarComponentes();
@@ -79,10 +79,10 @@ public class GuiCadastro extends JPanel {
 
 				if (linhas == null) {
 					
-					JOptionPane.showMessageDialog(btLer, "Não localizado!");
+					JOptionPane.showMessageDialog(btLer, "Nao localizado!");
 				} else {
 					
-					tfNome.setText(linhas[1]); // Joga o valor que foi pego no código no campo de nome
+					tfNome.setText(linhas[1]); // Joga o valor que foi pego no codigo no campo de nome
 				}
 			}
 		});

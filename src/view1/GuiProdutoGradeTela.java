@@ -193,7 +193,7 @@ public class GuiProdutoGradeTela extends javax.swing.JPanel {
 					tfPreco.setText("" + p.getPreco());
 					tfEstoque.setText("" + p.getEstoque());
 				} else {
-					JOptionPane.showMessageDialog(btBuscar, "Produto não encontrado");
+					JOptionPane.showMessageDialog(btBuscar, "Produto nao encontrado");
 					limparCaixas();
 				}
 			}
@@ -226,7 +226,7 @@ public class GuiProdutoGradeTela extends javax.swing.JPanel {
 
 				int r = JOptionPane.showConfirmDialog(btExcluir, "Tem certeza?");
 				
-				if (r == 0) { // significa que o usuário apertou o primeiro botãoo, o botão sim
+				if (r == 0) { // significa que o usuï¿½rio apertou o primeiro botï¿½oo, o botï¿½o sim
 					
 					JOptionPane.showMessageDialog(btExcluir, pdao.excluir(Integer.parseInt(tfCodigo.getText())));
 					

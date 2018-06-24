@@ -18,7 +18,7 @@ public class ProdutoLocalizarTeste {
 			JOptionPane.showMessageDialog(null, x.toString());			
 		} else {
 			
-			JOptionPane.showMessageDialog(null, "Não encontrado");
+			JOptionPane.showMessageDialog(null, "Nao encontrado");
 		}
 	}
 }

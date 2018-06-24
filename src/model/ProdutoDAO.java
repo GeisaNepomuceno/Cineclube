@@ -29,7 +29,7 @@ public class ProdutoDAO{
 		}
 		catch(SQLException erro) {
 			int pos = erro.toString().indexOf("PRIMARY KEY");
-			if(pos>=0) { //inicio da alteração
+			if(pos>=0) { //inicio da alteracao
 				sql = "update produtos set nome=?, preco=?, estoque=? "+
 			          "where codigo = ?";
 				try {
@@ -42,7 +42,7 @@ public class ProdutoDAO{
 					men = "Produto alterado com sucesso!";
 				}
 				catch(SQLException e) {
-					men = "Falha na alteração!";
+					men = "Falha na alteraÃ§Ã£o!";
 				}
 			}
 		}
@@ -57,12 +57,12 @@ public class ProdutoDAO{
 		sql = "delete from produtos where codigo = ?";
 		try {
 			
-			bd.getConnection(); // conexï¿½o com o banco
+			bd.getConnection(); // conexao com o banco
 			bd.st = bd.con.prepareStatement(sql);
 			
-			// nï¿½mero um ï¿½ para ser o primeiro parametro, da esquerda para a direita.
-			// esse parametro 1 server como referencia do parametro lï¿½ em cima, do cï¿½digo, ou seja,
-			// esse parametro vai no lugar da interrogaï¿½ï¿½o
+			// numero um e para ser o primeiro parametro, da esquerda para a direita.
+			// esse parametro 1 server como referencia do parametro la em cima, do codigo, ou seja,
+			// esse parametro vai no lugar da interrogacao
 			bd.st.setInt(1,  codigo); 
 			int r = bd.st.executeUpdate(); // retorna a quantidade de linhas que ele excluiu
 			
@@ -93,10 +93,10 @@ public class ProdutoDAO{
 		
 		try {
 			
-			bd.getConnection(); // conexï¿½o com o banco
+			bd.getConnection(); // conexao com o banco
 			bd.st = bd.con.prepareStatement(sql);
 			bd.st.setInt(1,  codigo); 
-			bd.rs = bd.st.executeQuery(); // rs um objeto em memï¿½ria que representa uma tabela com os dados do select, a primeira linha ï¿½ o header da coluna
+			bd.rs = bd.st.executeQuery(); // rs um objeto em memoria que representa uma tabela com os dados do select, a primeira linha e o header da coluna
 			
 			
 			// Ou retorna um produto ou um objeto nulo
@@ -132,7 +132,7 @@ public class ProdutoDAO{
 			
 			bd.getConnection(); // conexï¿½o com o banco
 			bd.st = bd.con.prepareStatement(sql);
-			bd.rs = bd.st.executeQuery(); // rs um objeto em memï¿½ria que representa uma tabela com os dados do select, a primeira linha ï¿½ o header da coluna
+			bd.rs = bd.st.executeQuery(); // rs um objeto em memoria que representa uma tabela com os dados do select, a primeira linha e o header da coluna
 			
 			while (bd.rs.next()) {
 				

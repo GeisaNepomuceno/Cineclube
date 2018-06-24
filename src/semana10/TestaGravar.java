@@ -9,7 +9,7 @@ public class TestaGravar {
 		ArquivoTexto at = new ArquivoTexto();
 		
 		String[] linhas = {
-				"Hoje é quinta", "Amanhã é sexta"
+				"Hoje e quinta", "Amanha e sexta"
 		};
 		
 		JOptionPane.showMessageDialog(null, at.gravar("C:/Users/1050481723027/Documents/Teste_Java/", "semana.txt", linhas));

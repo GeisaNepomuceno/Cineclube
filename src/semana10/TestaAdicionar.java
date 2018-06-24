@@ -9,7 +9,7 @@ public class TestaAdicionar {
 		ArquivoTexto at = new ArquivoTexto();
 		
 		String[] linhas = {
-				"Hoje é quinta", "Amanhã é sexta", "Sábado"
+				"Hoje e quinta", "Amanha e sexta", "Sabado"
 		};
 		
 		JOptionPane.showMessageDialog(null, at.adicionar("C:/Users/1050481723027/Documents/Teste_Java/", "semana.txt", linhas));
