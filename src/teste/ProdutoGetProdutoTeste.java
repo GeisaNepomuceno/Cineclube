@@ -15,7 +15,7 @@ public class ProdutoGetProdutoTeste {
 //		JOptionPane.showMessageDialog(null, lista.toString());
 		
 		for(Produto p: lista) {
-			p.mostrar();
+                    p.mostrar();
 		}
 	}
 }

@@ -27,7 +27,9 @@ public class Cliente {
 //				+ ", bairro=" + bairro + ", cep=" + cep + ", rg=" + rg + ", cpf=" + cpf + ", dataNasc=" + dataNasc
 //				+ ", telefone=" + telefone + ", email=" + email + ", celular=" + celular + ", sexo=" + sexo + "]";
 //	}
-
+        public void mostrar(){
+            System.out.println("["+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
+        }
 
 	public Cliente(/*int codigo*/String nome, String endereco, String cidade, String bairro, String cep, String rg,
 			String cpf, String dataNasc, String telefone, String email, String celular, String sexo) {
