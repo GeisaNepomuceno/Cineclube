@@ -4,35 +4,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import integracaobd.ConexaoBD;
+import integracaobd.BDLocal;
 
 public class ClienteDAO {
 	
 	private String men, sql; 
-	private ConexaoBD bd; 
+	private BDLocal bd; 
 	
 	public ClienteDAO() {
-		bd = new ConexaoBD();
+		bd = new BDLocal();
 	}
 	
 	public String salvar(Cliente c) {
-		sql = "set dateformat dmy insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "INSERT INTO funcionario(nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
+				+ "VALUES(?,?,?,	CONVERT(DATE, ?, 103),?,?,?,?,?,?,?,?)";
 		
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
 			bd.st.setString(1, c.getNome());
-			bd.st.setString(2, c.getEndereco());
-			bd.st.setString(3, c.getCidade());
-			bd.st.setString(4, c.getBairro());
-			bd.st.setString(5, c.getCep());
-			bd.st.setString(6, c.getRg());
 			bd.st.setString(7, c.getCpf());
+			bd.st.setString(6, c.getRg());
 			bd.st.setString(8, c.getDataNasc());
 			bd.st.setString(9, c.getTelefone());
 			bd.st.setString(10, c.getEmail());
+			bd.st.setString(2, c.getEndereco());
+			bd.st.setString(3, c.getCidade());
+			bd.st.setString(5, c.getCep());
+			bd.st.setString(4, c.getBairro());			
 			bd.st.setString(11, c.getCelular());
 			bd.st.setString(12, c.getSexo());
+			bd.st.executeUpdate();
 			
 			men = "Cliente cadastrado com sucesso!";
 		}
