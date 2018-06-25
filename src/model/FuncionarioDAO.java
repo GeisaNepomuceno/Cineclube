@@ -38,39 +38,41 @@ public class FuncionarioDAO {
 			
 			men = "Funcionario cadastrado com sucesso!";
 		}
-//		catch (SQLException erro) {
-//				int pos = erro.toString().indexOf("PRIMARY KEY");
-//				if(pos>=0) { //inicio da altera��o
-//					sql = "update Funcionario set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
-//				          "where id_Funcionario = ?";
-//					try {
-//						
-//						bd.st.setString(1, c.getNome());
-//						bd.st.setString(2, c.getEndereco());
-//						bd.st.setString(3, c.getCidade());
-//						bd.st.setString(4, c.getBairro());
-//						bd.st.setString(5, c.getCep());
-//						bd.st.setString(6, c.getRg());
-//						bd.st.setString(7, c.getCpf());
-//						bd.st.setString(8, c.getDataNasc());
-//						bd.st.setString(9, c.getTelefone());
-//						bd.st.setString(10, c.getEmail());
-//						bd.st.setInt(11, c.getCelular());
-//						bd.st.setString(12, c.getSexo());	
-////						bd.st.setInt(13, c.getCodigo());
-//						bd.st.executeUpdate();
-//						men = "Funcionario alterado com sucesso!";
-//					}
+		catch (SQLException erro) {
+				int pos = erro.toString().indexOf("PRIMARY KEY");
+				if(pos>=0) { //inicio da alteracao
+					sql = "update Funcionario set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+				          "where id_Funcionario = ?";
+					try {
+						
+						bd.st.setString(1, f.getNome());
+						bd.st.setString(2, f.getEndereco());
+						bd.st.setString(3, f.getCidade());
+						bd.st.setString(4, f.getBairro());
+						bd.st.setString(5, f.getCep());
+						bd.st.setString(6, f.getRg());
+						bd.st.setString(7, f.getCpf());
+						bd.st.setString(8, f.getDataNasc());
+						bd.st.setString(9, f.getTelefone());
+						bd.st.setString(10, f.getEmail());
+						bd.st.setString(11, f.getCelular());
+						bd.st.setString(12, f.getSexo());	
+//						bd.st.setInt(13, f.getCodigo());
+						bd.st.executeUpdate();
+						men = "Funcionario alterado com sucesso!";
+					}
 		catch(SQLException e) {
                     men = "Falha na alteração!";
 		}
 		finally {
                     bd.close();
-		}	
-		return men;
 		}
+                                }   
+                }
+                 return men;
+        }
 	
-	public String excluir(int codigo) {
+            public String excluir(int codigo) {
 		
 		sql = "delete from funcionario where id_funcionario = ?";
 		
@@ -78,7 +80,7 @@ public class FuncionarioDAO {
 			
 			bd.getConnection(); 
 			bd.con.prepareStatement(sql); 
-			bd.st.setInt(1, codigo);
+			bd.st.setInt(13, codigo);
 			
 			int r = bd.st.executeUpdate(); 
 			

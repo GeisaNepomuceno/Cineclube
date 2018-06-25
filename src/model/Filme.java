@@ -6,7 +6,7 @@ public class Filme {
 	private String dataLancamento; 
 	private String diretor; 
 	private String bairro; 
-	private int	 tempo; 
+	private int    tempo; 
 	private String genero;
 	private String classificacao;
 	private String descricao;
