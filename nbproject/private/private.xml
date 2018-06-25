@@ -2,25 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaExcluirFilmes.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaLogin.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/integracaobd/ConsultaCategoria.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaAtualizarCadastroFilmes.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaCadastroUsuarioSDI.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaCadastroFilmes.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaPrincipalSDI.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaAtualizarCadastroFuncionario.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/integracaobd/BdTest.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/integracaobd/BD.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaExcluirFuncionario.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/cineclube/usaMaior.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaLoginExterno.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaCadastroCliente.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/view/TelaCadastroFuncionario.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/integracaobd/TestaConexaoBD.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/integracaobd/ConexaoBD.java</file>
-            <file>file:/C:/Users/Jefer/OneDrive/Documentos/NetBeansProjects/Cineclube/src/cineclube/MaiorNumero.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
