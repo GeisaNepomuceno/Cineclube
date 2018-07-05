@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.JComboBox;
+
 public class Cliente {
 	private int codigo;
 	private String nome; 

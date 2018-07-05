@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.JComboBox;
+
 public class Funcionario {
 	private int codigo;
 	private String nome; 
@@ -14,27 +16,21 @@ public class Funcionario {
 	private String email; 
 	private String celular;
 	private String sexo; 
-	
+        
 	
 	public Funcionario() {
 		
 	}
+        
 
-
-//	@Override
-//	public String toString() {
-//		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", endereco=" + endereco + ", cidade=" + cidade
-//				+ ", bairro=" + bairro + ", cep=" + cep + ", rg=" + rg + ", cpf=" + cpf + ", dataNasc=" + dataNasc
-//				+ ", telefone=" + telefone + ", email=" + email + ", celular=" + celular + ", sexo=" + sexo + "]";
-//	}
         public void mostrar(){
             System.out.println("["+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
         }
 
-	public Funcionario(/*int codigo*/String nome, String endereco, String cidade, String bairro, String cep, String rg,
+	public Funcionario(int codigo, String nome, String endereco, String cidade, String bairro, String cep, String rg,
 			String cpf, String dataNasc, String telefone, String email, String celular, String sexo) {
 		super();
-//		this.codigo = codigo;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cidade = cidade;
