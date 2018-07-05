@@ -66,12 +66,11 @@ public class FuncionarioDAO {
 					}
 		catch(SQLException e) {
                     men = "Falha na alteração!";
-		}
-		finally {
-                    bd.close();
-                        }	
-		
+		}					
                     }
+                }
+		finally {
+            bd.close();
                 }
           return men;
         }

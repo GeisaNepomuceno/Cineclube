@@ -16,34 +16,36 @@ public class ClienteDAO {
 	}
 	
 	public String salvar(Cliente c) {//METODO INSERIR OU ATUALIZAR
-		sql = "INSERT INTO cliente(codigo,nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "INSERT INTO cliente(id_cliente,nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo,id_funcionario) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
-			bd.getConnection();
-			bd.st = bd.con.prepareStatement(sql);
+						bd.getConnection();
+						bd.st = bd.con.prepareStatement(sql);
                         bd.st.setInt(1, c.getCodigo());
                         bd.st.setString(2, c.getNome());
-                        bd.st.setString(3, c.getEndereco());
-                        bd.st.setString(4, c.getCidade());
-                        bd.st.setString(5, c.getBairro());
-                        bd.st.setString(6, c.getCep());
-                        bd.st.setString(7, c.getRg());
-                        bd.st.setString(8, c.getCpf());
-                        bd.st.setString(9, c.getDataNasc());
-                        bd.st.setString(10, c.getTelefone());
-                        bd.st.setString(11, c.getCelular());
-                        bd.st.setString(12, c.getSexo());
-			bd.st.setString(13, c.getEmail());
-			
-			bd.st.executeUpdate();
+                        bd.st.setString(3, c.getCpf());
+                        bd.st.setString(4, c.getRg());
+                        bd.st.setString(5, c.getDataNasc());
+                        bd.st.setString(6, c.getTelefone());
+                        bd.st.setString(7, c.getEmail());
+                        bd.st.setString(8, c.getEndereco());
+                        bd.st.setString(9, c.getCidade());
+                        bd.st.setString(10, c.getCep());
+                        bd.st.setString(11, c.getBairro());
+                        bd.st.setString(12, c.getCelular());
+                        bd.st.setString(13, c.getSexo());
+                        bd.st.setInt(14, c.getCodfuncionario());
+                        
+                        bd.st.executeUpdate();
 			
 			men = "Cliente cadastrado com sucesso!";
 		}
 		catch (SQLException erro) {
 				int pos = erro.toString().indexOf("PRIMARY KEY");
 				if(pos>=0) { 
-					sql = "update cliente set codigo=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+					sql = "update cliente set id_cliente=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, "
+							+ "datanascimento=?, telefone=?, email=?, celular=?, sexo=?, id_funcionario=? "+
 				          "where id_cliente = ?";
 					try {
 						
@@ -60,22 +62,22 @@ public class ClienteDAO {
 						bd.st.setString(11, c.getEmail());
 						bd.st.setString(12, c.getCelular());
 						bd.st.setString(13, c.getSexo());	
-						bd.st.setInt(14, c.getCodigo());
+						bd.st.setInt(14, c.getCodfuncionario());
+						bd.st.setInt(15, c.getCodigo());
 						bd.st.executeUpdate();
 						men = "Cliente alterado com sucesso!";
 					}
 		catch(SQLException e) {
                     men = "Falha na alteração!";
 		}
-		finally {
-                    bd.close();
-		}	
                                 }
                                 
-                }
-                
-                return men;
-        }
+                }    
+		finally {
+            bd.close();
+				}	
+        return men;
+       }
 	
 	public String excluir(int codigo) { //METODO DELETE
 		
@@ -100,7 +102,7 @@ public class ClienteDAO {
 			
 		} catch (Exception e) {
 			
-			men = "Falha na exclusao" + e.toString();
+			men = "Falha! " + e.toString();
 		}
 		finally {
 			bd.close();

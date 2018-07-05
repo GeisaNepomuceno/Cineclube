@@ -15,7 +15,8 @@ public class Cliente {
 	private String telefone;
 	private String celular;
 	private String sexo; 
-        private String email; 
+    private String email;
+    private int codfuncionario;
   
 	
 	
@@ -24,27 +25,39 @@ public class Cliente {
 	}
 
         public void mostrar(){
-            System.out.println("["+codigo+","+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
+            System.out.println("["+codigo+","+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+","+codfuncionario+"]");
         }
 
+	
+
+
 	public Cliente(int codigo, String nome, String endereco, String cidade, String bairro, String cep, String rg,
-			String cpf, String dataNasc, String telefone, String email, String celular, String sexo) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.endereco = endereco;
-		this.cidade = cidade;
-		this.bairro = bairro;
-		this.cep = cep;
-		this.rg = rg;
-		this.cpf = cpf;
-		this.dataNasc = dataNasc;
-		this.telefone = telefone;
-		this.email = email;
-		this.celular = celular;
-		this.sexo = sexo;
+				String cpf, String dataNasc, String telefone, String celular, String sexo, String email,
+				int codfuncionario) {
+			super();
+			this.codigo = codigo;
+			this.nome = nome;
+			this.endereco = endereco;
+			this.cidade = cidade;
+			this.bairro = bairro;
+			this.cep = cep;
+			this.rg = rg;
+			this.cpf = cpf;
+			this.dataNasc = dataNasc;
+			this.telefone = telefone;
+			this.celular = celular;
+			this.sexo = sexo;
+			this.email = email;
+			this.codfuncionario = codfuncionario;
+		}
+
+	public int getCodfuncionario() {
+		return codfuncionario;
 	}
 
+	public void setCodfuncionario(int codfuncionario) {
+		this.codfuncionario = codfuncionario;
+	}
 
 	public int getCodigo() {
 		return codigo;
