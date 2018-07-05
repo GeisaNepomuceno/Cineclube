@@ -15,8 +15,8 @@ public class Cliente {
 	private String telefone;
 	private String celular;
 	private String sexo; 
-    private String email;
-    private int codfuncionario;
+        private String email;
+        private int codfuncionario;
   
 	
 	

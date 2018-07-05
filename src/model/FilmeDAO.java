@@ -65,7 +65,7 @@ public class FilmeDAO {
 						men = "Filme alterado com sucesso!";
 					}
 		catch(SQLException e) {
-                    men = "Falha na alteração!";
+                    men = "Falha na alteracao!";
 		}			
                                 }                                
                 }
@@ -121,15 +121,15 @@ public Filme localizar(int codigo) {//METODO SELECT
 		bd.rs = bd.st.executeQuery();
 		
 		if(bd.rs.next()) {		
-			c.setCodfilme(bd.rs.getInt("Código filme"));
+			c.setCodfilme(bd.rs.getInt("Cï¿½digo filme"));
 			c.setNome(bd.rs.getString("nome"));
-			c.setDataLancamento(bd.rs.getString("Data de lançamento"));
+			c.setDataLancamento(bd.rs.getString("Data de lanï¿½amento"));
 			c.setDiretor(bd.rs.getString("Diretor"));
-			c.setTempo(bd.rs.getString("Tempo de duração"));
-			c.setGenero(bd.rs.getString("Gênero"));
-			c.setClassificacao(bd.rs.getString("Classificação"));
-			c.setDescricao(bd.rs.getString("Descrição"));
-			c.setCodfuncionario(bd.rs.getInt("Código funcionário"));
+			c.setTempo(bd.rs.getString("Tempo de duraï¿½ï¿½o"));
+			c.setGenero(bd.rs.getString("Gï¿½nero"));
+			c.setClassificacao(bd.rs.getString("Classificaï¿½ï¿½o"));
+			c.setDescricao(bd.rs.getString("Descriï¿½ï¿½o"));
+			c.setCodfuncionario(bd.rs.getInt("Cï¿½digo funcionï¿½rio"));
 		}
 		
 		else {
@@ -162,15 +162,15 @@ public List<Filme> getFilmes() {//METODO LISTAR TODOS OS FILMES (LISTA)
 		while (bd.rs.next()) {			
 			Filme c = new Filme();
 			
-			c.setCodfilme(bd.rs.getInt("Código filme"));
+			c.setCodfilme(bd.rs.getInt("Cï¿½digo filme"));
 			c.setNome(bd.rs.getString("nome"));
-			c.setDataLancamento(bd.rs.getString("Data de lançamento"));
+			c.setDataLancamento(bd.rs.getString("Data de lanï¿½amento"));
 			c.setDiretor(bd.rs.getString("Diretor"));
-			c.setTempo(bd.rs.getString("Tempo de duração"));
-			c.setGenero(bd.rs.getString("Gênero"));
-			c.setClassificacao(bd.rs.getString("Classificação"));
-			c.setDescricao(bd.rs.getString("Descrição"));
-			c.setCodfuncionario(bd.rs.getInt("Código funcionário"));
+			c.setTempo(bd.rs.getString("Tempo de duraï¿½ï¿½o"));
+			c.setGenero(bd.rs.getString("Gï¿½nero"));
+			c.setClassificacao(bd.rs.getString("Classificaï¿½ï¿½o"));
+			c.setDescricao(bd.rs.getString("Descriï¿½ï¿½o"));
+			c.setCodfuncionario(bd.rs.getInt("Cï¿½digo funcionï¿½rio"));
 			
 			lista.add(c); // adicionando na lista
 		}

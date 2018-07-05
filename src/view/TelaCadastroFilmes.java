@@ -269,17 +269,6 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        //        JOptionPane.showMessageDialog(null, "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
-            //        + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
-        //
-//        if(tfNome.getText().equals("") || jiData.getText().equals("") || jcSexo.getSelectedItem().toString().equals("") || jiCPF.getText().equals("") || jiCelular.getText().equals("") || tfEmail.getText().equals("")){
-//            JOptionPane.showMessageDialog(null, "Cadastro incompleto, por favor, preencha todos os campos!");
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!\n" + "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
-//                + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
-//        }
-
         limparCaixas();
     }//GEN-LAST:event_btNovoActionPerformed
 
