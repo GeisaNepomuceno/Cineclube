@@ -75,7 +75,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         tfCep = new javax.swing.JFormattedTextField();
         tfCodigo = new javax.swing.JTextField();
         jCodigo = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btLocalizar = new javax.swing.JButton();
         tfSexo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         tfTelefone = new javax.swing.JFormattedTextField();
@@ -134,7 +134,12 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
         jCodigo.setText("Codigo:");
 
-        jButton4.setText("Localizar");
+        btLocalizar.setText("Localizar");
+        btLocalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLocalizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,7 +162,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
+                        .addComponent(btLocalizar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -200,7 +205,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4))
+                            .addComponent(btLocalizar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -390,6 +395,33 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_btExcluirActionPerformed
 
+    private void btLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLocalizarActionPerformed
+
+        f = fdao.localizar(Integer.parseInt(tfCodigo.getText()));
+				
+            if (f != null) {
+
+                tfCodigo.setText("" + f.getCodigo());
+                tfNome.setText(f.getNome());
+                tfRG.setText("" + f.getRg());
+                tfCPF.setText("" + f.getCpf());
+                tfEndereco.setText("" + f.getEndereco());
+                tfData.setText("" + f.getDataNasc());
+                tfSexo.setText("" + f.getSexo());
+                tfBairro.setText("" + f.getBairro());
+                tfCep.setText("" + f.getCep());
+                tfTelefone.setText("" + f.getTelefone());
+                tfCelular.setText("" + f.getCelular());
+                tfEmail.setText("" + f.getEmail());
+
+                } else {
+
+                    JOptionPane.showMessageDialog(btLocalizar, "Produto nao encontrado");
+                    
+                    limparCaixas();
+                }
+    }//GEN-LAST:event_btLocalizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -428,9 +460,9 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btLocalizar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jCodigo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

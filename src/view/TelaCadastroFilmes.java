@@ -5,7 +5,10 @@
  */
 package view;
 
+import integracaobd.BDLocal;
 import javax.swing.JOptionPane;
+import model.Filme;
+import model.FilmeDAO;
 
 /**
  *
@@ -17,7 +20,27 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
      * Creates new form TelaCadastroFilmes
      */
     public TelaCadastroFilmes() {
+        
+        FilmeDAO fdao = new FilmeDAO();
+        Filme f = new Filme();
+        BDLocal bd = new BDLocal(); 
+        bd.getConnection();
+        
         initComponents();
+    }
+    
+        public void limparCaixas(){
+            
+        tfCodigo.setText("");
+        tfTitulo.setText("");
+	tfData.setText("");
+        tfDiretor.setText("");
+        tfNacionalidade.setText("");
+        tfDuracao.setText("");
+        tfGenero.setText("");
+        tfClassificacao.setText("");
+        tfDescricao.setText("");
+        tfCodigo.requestFocus();        
     }
 
     /**
@@ -28,39 +51,37 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tfNome = new javax.swing.JTextField();
-        jiData = new javax.swing.JFormattedTextField();
-        jcSexo = new javax.swing.JComboBox<>();
+        tfTitulo = new javax.swing.JTextField();
+        tfData = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tfNome2 = new javax.swing.JTextField();
+        tfNacionalidade = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        tfNome8 = new javax.swing.JTextField();
+        tfDiretor = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        tfNome9 = new javax.swing.JTextField();
+        tfDuracao = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jcSexo3 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        tfNome3 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        tfCodigo = new javax.swing.JTextField();
+        btLocalizar = new javax.swing.JButton();
+        tfGenero = new javax.swing.JTextField();
+        tfClassificacao = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        tfNome1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tfDescricao = new javax.swing.JTextField();
+        btNovo = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de filme:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
         try {
-            jiData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-
-        jcSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ação", "Animação", "Aventura", "Comédia", "Documentário", "Drama", "Espionagem", "Erótico", "Fantasia", "Faroeste", "Ficção Científica", "Guerra", "Musical", "Romance", "Suspense", "Terror", " ", " ", " ", " " }));
 
         jLabel1.setText("Título:");
 
@@ -76,11 +97,14 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
 
         jLabel17.setText("Classificação indicativa:");
 
-        jcSexo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Livre", "10", "12", "14", "16", "18", " ", " " }));
-
         jLabel5.setText("Codigo");
 
-        jButton4.setText("Localizar");
+        btLocalizar.setText("Localizar");
+        btLocalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLocalizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,27 +115,26 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1)
                         .addComponent(jLabel8)
-                        .addComponent(tfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                        .addComponent(tfNome2))
+                        .addComponent(tfTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                        .addComponent(tfNacionalidade))
                     .addComponent(jLabel15)
-                    .addComponent(tfNome8, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDiretor, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tfNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btLocalizar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
                     .addComponent(jLabel16)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel2)
-                        .addComponent(jiData)
-                        .addComponent(jcSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jcSexo3, javax.swing.GroupLayout.Alignment.LEADING, 0, 119, Short.MAX_VALUE)
-                        .addComponent(tfNome9, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(tfGenero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(tfDuracao, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(tfClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,39 +143,38 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jiData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel4)
-                .addGap(3, 3, 3)
-                .addComponent(jcSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel17)
-                .addGap(3, 3, 3)
-                .addComponent(jcSexo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(14, 14, 14)
+                .addComponent(tfClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btLocalizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfDiretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
 
@@ -167,7 +189,7 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(335, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -176,20 +198,30 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Novo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btNovo.setText("Novo");
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btNovoActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Excluir");
+        btExcluir.setText("Excluir");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Salvar");
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,11 +232,11 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btNovo)
                         .addGap(14, 14, 14)
-                        .addComponent(jButton2)
+                        .addComponent(btSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3))
+                        .addComponent(btExcluir))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(23, 23, 23))
@@ -218,9 +250,9 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btNovo)
+                    .addComponent(btSalvar)
+                    .addComponent(btExcluir))
                 .addContainerGap())
         );
 
@@ -228,7 +260,7 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         //        JOptionPane.showMessageDialog(null, "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
             //        + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
         //
@@ -239,7 +271,61 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!\n" + "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
 //                + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
 //        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        limparCaixas();
+    }//GEN-LAST:event_btNovoActionPerformed
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+
+        f.setCodfilme(Integer.parseInt(tfCodigo.getText()));
+        f.setNome(tfTitulo.getText());
+        f.setDataLancamento(tfData.getText());
+        f.setDiretor(tfDiretor.getText());
+        f.setBairro(tfNacionalidade.getText());
+        f.setTempo(tfDuracao.getText()); 
+        f.setGenero(tfGenero.getText());
+        f.setClassificacao(tfClassificacao.getText());
+        f.setDescricao(tfDescricao.getText());
+
+        JOptionPane.showMessageDialog(btSalvar, fdao.salvar(f));
+
+        limparCaixas();
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLocalizarActionPerformed
+
+        f = fdao.localizar(Integer.parseInt(tfCodigo.getText()));
+				
+            if (f != null) {
+
+                tfCodigo.setText("" + f.getCodfilme());
+                tfTitulo.setText(f.getNome());
+                tfData.setText("" + f.getDataLancamento());
+                tfDiretor.setText("" + f.getDiretor());
+                tfNacionalidade.setText("" + f.getBairro());
+                tfDuracao.setText("" + f.getTempo());
+                tfGenero.setText("" + f.getGenero());
+                tfClassificacao.setText("" + f.getClassificacao());
+                tfDescricao.setText("" + f.getDescricao());
+
+                } else {
+
+                    JOptionPane.showMessageDialog(btLocalizar, "Produto nao encontrado");
+                
+                    limparCaixas();
+                }
+    }//GEN-LAST:event_btLocalizarActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+        
+        int r = JOptionPane.showConfirmDialog(btExcluir, "Tem certeza?");
+				
+		if (r == 0) { // significa que o usu�rio apertou o primeiro bot�oo, o bot�o sim
+					
+                    JOptionPane.showMessageDialog(btExcluir, fdao.excluir(Integer.parseInt(tfCodigo.getText())));
+				
+		}
+    }//GEN-LAST:event_btExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,10 +363,10 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btLocalizar;
+    private javax.swing.JButton btNovo;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -292,14 +378,17 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JComboBox<String> jcSexo;
-    private javax.swing.JComboBox<String> jcSexo3;
-    private javax.swing.JFormattedTextField jiData;
-    private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfNome1;
-    private javax.swing.JTextField tfNome2;
-    private javax.swing.JTextField tfNome3;
-    private javax.swing.JTextField tfNome8;
-    private javax.swing.JTextField tfNome9;
+    private javax.swing.JTextField tfClassificacao;
+    private javax.swing.JTextField tfCodigo;
+    private javax.swing.JFormattedTextField tfData;
+    private javax.swing.JTextField tfDescricao;
+    private javax.swing.JTextField tfDiretor;
+    private javax.swing.JTextField tfDuracao;
+    private javax.swing.JTextField tfGenero;
+    private javax.swing.JTextField tfNacionalidade;
+    private javax.swing.JTextField tfTitulo;
     // End of variables declaration//GEN-END:variables
+    private FilmeDAO fdao;
+    private Filme f;
+    private BDLocal bd;
 }
