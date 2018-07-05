@@ -15,7 +15,7 @@ public class ClienteDAO {
 		bd = new BDLocal();
 	}
 	
-	public String salvar(Cliente c) {
+	public String salvar(Cliente c) {//METODO INSERIR OU ATUALIZAR
 		sql = "INSERT INTO cliente(codigo,nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
 				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 		
@@ -23,7 +23,7 @@ public class ClienteDAO {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
                         bd.st.setInt(1, c.getCodigo());
-			bd.st.setString(2, c.getNome());
+                        bd.st.setString(2, c.getNome());
                         bd.st.setString(3, c.getEndereco());
                         bd.st.setString(4, c.getCidade());
                         bd.st.setString(5, c.getBairro());
@@ -42,29 +42,30 @@ public class ClienteDAO {
 		}
 		catch (SQLException erro) {
 				int pos = erro.toString().indexOf("PRIMARY KEY");
-				if(pos>=0) { //inicio da alteraï¿½ï¿½o
-					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+				if(pos>=0) { 
+					sql = "update cliente set codigo=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
 				          "where id_cliente = ?";
 					try {
 						
-						bd.st.setString(1, c.getNome());
-						bd.st.setString(2, c.getEndereco());
-						bd.st.setString(3, c.getCidade());
-						bd.st.setString(4, c.getBairro());
-						bd.st.setString(5, c.getCep());
-						bd.st.setString(6, c.getRg());
-						bd.st.setString(7, c.getCpf());
-						bd.st.setString(8, c.getDataNasc());
-						bd.st.setString(9, c.getTelefone());
-						bd.st.setString(10, c.getEmail());
-						bd.st.setString(11, c.getCelular());
-						bd.st.setString(12, c.getSexo());	
-						bd.st.setInt(13, c.getCodigo());
+						bd.st.setInt(1, c.getCodigo());
+						bd.st.setString(2, c.getNome());
+						bd.st.setString(3, c.getEndereco());
+						bd.st.setString(4, c.getCidade());
+						bd.st.setString(5, c.getBairro());
+						bd.st.setString(6, c.getCep());
+						bd.st.setString(7, c.getRg());
+						bd.st.setString(8, c.getCpf());
+						bd.st.setString(9, c.getDataNasc());
+						bd.st.setString(10, c.getTelefone());
+						bd.st.setString(11, c.getEmail());
+						bd.st.setString(12, c.getCelular());
+						bd.st.setString(13, c.getSexo());	
+						bd.st.setInt(14, c.getCodigo());
 						bd.st.executeUpdate();
 						men = "Cliente alterado com sucesso!";
 					}
 		catch(SQLException e) {
-                    men = "Falha na alteraÃ§Ã£o!";
+                    men = "Falha na alteração!";
 		}
 		finally {
                     bd.close();
@@ -76,7 +77,7 @@ public class ClienteDAO {
                 return men;
         }
 	
-	public String excluir(int codigo) {
+	public String excluir(int codigo) { //METODO DELETE
 		
 		sql = "delete from cliente where id_cliente = ?";
 		
@@ -109,7 +110,7 @@ public class ClienteDAO {
 		
 	}
 	
-	public Cliente localizar(int codigo) {
+	public Cliente localizar(int codigo) {//METODO SELECT
 		
 		sql = "select * from cliente where id_cliente = ?";
 		
@@ -153,7 +154,7 @@ public class ClienteDAO {
 		return c;
 	}
 	
-	public List<Cliente> getClientes() {
+	public List<Cliente> getClientes() {//METODO LISTAR TODOS OS CLIENTES (LISTA)
 		
 		List<Cliente> lista = new ArrayList<Cliente>(); // Criar uma lista de produtos
 		

@@ -23,18 +23,11 @@ public class Cliente {
 		
 	}
 
-
-//	@Override
-//	public String toString() {
-//		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", endereco=" + endereco + ", cidade=" + cidade
-//				+ ", bairro=" + bairro + ", cep=" + cep + ", rg=" + rg + ", cpf=" + cpf + ", dataNasc=" + dataNasc
-//				+ ", telefone=" + telefone + ", email=" + email + ", celular=" + celular + ", sexo=" + sexo + "]";
-//	}
         public void mostrar(){
-            System.out.println("["+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
+            System.out.println("["+codigo+","+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
         }
 
-	public Cliente(/*int codigo*/String nome, String endereco, String cidade, String bairro, String cep, String rg,
+	public Cliente(int codigo, String nome, String endereco, String cidade, String bairro, String cep, String rg,
 			String cpf, String dataNasc, String telefone, String email, String celular, String sexo) {
 		super();
 		this.codigo = codigo;
