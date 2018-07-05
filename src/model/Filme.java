@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.JComboBox;
+
 public class Filme {
 	private int codfilme;
 	private String nome; 

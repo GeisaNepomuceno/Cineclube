@@ -24,7 +24,7 @@ public class Funcionario {
         
 
         public void mostrar(){
-            System.out.println("["+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
+            System.out.println("["+codigo+","+nome+","+endereco+","+cidade+","+endereco+","+bairro+","+cep+","+rg+","+cpf+","+dataNasc+","+telefone+","+email+","+celular+","+sexo+"]");
         }
 
 	public Funcionario(int codigo, String nome, String endereco, String cidade, String bairro, String cep, String rg,

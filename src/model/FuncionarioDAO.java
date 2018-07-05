@@ -16,24 +16,25 @@ public class FuncionarioDAO {
 	}
 	
 	public String salvar(Funcionario f) {
-		sql = "INSERT INTO funcionario(nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
-				+ "VALUES(?,?,?,	CONVERT(DATE, ?, 103),?,?,?,?,?,?,?,?)";
+		sql = "INSERT INTO funcionario(id_funcionario,nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setString(1, f.getNome());
-			bd.st.setString(7, f.getCpf());
-			bd.st.setString(6, f.getRg());
-			bd.st.setString(8, f.getDataNasc());
-			bd.st.setString(9, f.getTelefone());
-			bd.st.setString(10, f.getEmail());
-			bd.st.setString(2, f.getEndereco());
-			bd.st.setString(3, f.getCidade());
-			bd.st.setString(5, f.getCep());
-			bd.st.setString(4, f.getBairro());			
-			bd.st.setString(11, f.getCelular());
-			bd.st.setString(12, f.getSexo());
+			bd.st.setInt(1, f.getCodigo());
+			bd.st.setString(2, f.getNome());
+			bd.st.setString(3, f.getEndereco());
+			bd.st.setString(4, f.getCidade());
+			bd.st.setString(5, f.getBairro());
+			bd.st.setString(6, f.getCep());
+			bd.st.setString(7, f.getRg());
+			bd.st.setString(8, f.getCpf());
+			bd.st.setString(9, f.getDataNasc());
+			bd.st.setString(10, f.getTelefone());
+			bd.st.setString(11, f.getEmail());	
+			bd.st.setString(12, f.getCelular());
+			bd.st.setString(13, f.getSexo());
 			bd.st.executeUpdate();
 			
 			men = "Funcionario cadastrado com sucesso!";
@@ -41,28 +42,30 @@ public class FuncionarioDAO {
 		catch (SQLException erro) {
 				int pos = erro.toString().indexOf("PRIMARY KEY");
 				if(pos>=0) { //inicio da alteraï¿½ï¿½o
-					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
-				          "where id_cliente = ?";
+					sql = "update funcionario set id_funcionario=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+				          "where id_funcionario = ?";
 					try {
 						
-						bd.st.setString(1, f.getNome());
-						bd.st.setString(2, f.getEndereco());
-						bd.st.setString(3, f.getCidade());
-						bd.st.setString(4, f.getBairro());
-						bd.st.setString(5, f.getCep());
-						bd.st.setString(6, f.getRg());
-						bd.st.setString(7, f.getCpf());
-						bd.st.setString(8, f.getDataNasc());
-						bd.st.setString(9, f.getTelefone());
-						bd.st.setString(10, f.getEmail());
-						bd.st.setString(11, f.getCelular());
-						bd.st.setString(12, f.getSexo());	
-						bd.st.setInt(13, f.getCodigo());
+						bd.st = bd.con.prepareStatement(sql);
+						bd.st.setInt(1, f.getCodigo());
+						bd.st.setString(2, f.getNome());
+						bd.st.setString(3, f.getEndereco());
+						bd.st.setString(4, f.getCidade());
+						bd.st.setString(5, f.getBairro());
+						bd.st.setString(6, f.getCep());
+						bd.st.setString(7, f.getRg());
+						bd.st.setString(8, f.getCpf());
+						bd.st.setString(9, f.getDataNasc());
+						bd.st.setString(10, f.getTelefone());
+						bd.st.setString(11, f.getEmail());	
+						bd.st.setString(12, f.getCelular());
+						bd.st.setString(13, f.getSexo());
+						bd.st.setInt(14, f.getCodigo());
 						bd.st.executeUpdate();
-						men = "Cliente alterado com sucesso!";
+						men = "Funcionario alterado com sucesso!";
 					}
 		catch(SQLException e) {
-                    men = "Falha na alteraÃ§Ã£o!";
+                    men = "Falha na alteração!";
 		}
 		finally {
                     bd.close();
@@ -70,7 +73,7 @@ public class FuncionarioDAO {
 		
                     }
                 }
-                return men;
+          return men;
         }
 	
 	public String excluir(int codigo) {
@@ -121,6 +124,7 @@ public class FuncionarioDAO {
 			
 			if(bd.rs.next()) {
 				
+				c.setCodigo(bd.rs.getInt("Código"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
@@ -167,7 +171,7 @@ public class FuncionarioDAO {
 				
 				Funcionario c = new Funcionario();
 				
-				
+				c.setCodigo(bd.rs.getInt("Código"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
