@@ -3,6 +3,7 @@ package model;
 import javax.swing.JComboBox;
 
 public class Funcionario {
+    
 	private int codigo;
 	private String nome; 
 	private String endereco; 
@@ -16,8 +17,7 @@ public class Funcionario {
 	private String email; 
 	private String celular;
 	private String sexo; 
-        
-	
+       
 	public Funcionario() {
 		
 	}

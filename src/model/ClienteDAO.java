@@ -78,7 +78,7 @@ public class ClienteDAO {
 	
 	public String excluir(int codigo) {
 		
-		sql = "delete from cliente where id_funcionario = ?";
+		sql = "delete from cliente where id_cliente = ?";
 		
 		try {
 			
@@ -94,7 +94,7 @@ public class ClienteDAO {
 				
 			} else {
 				
-				men = "Funcionario nao encontrado!";
+				men = "Cliente nao encontrado!";
 			}
 			
 		} catch (Exception e) {
