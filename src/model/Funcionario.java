@@ -1,7 +1,7 @@
 package model;
 
 public class Funcionario {
-//	private int codigo;
+	private int codigo;
 	private String nome; 
 	private String endereco; 
 	private String cidade; 
@@ -50,14 +50,14 @@ public class Funcionario {
 	}
 
 
-//	public int getCodigo() {
-//		return codigo;
-//	}
-//
+	public int getCodigo() {
+		return codigo;
+	}
 
-//	public void setCodigo(int codigo) {
-//		this.codigo = codigo;
-//	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 
 	public String getNome() {
