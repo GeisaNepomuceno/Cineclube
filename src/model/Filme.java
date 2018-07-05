@@ -7,15 +7,14 @@ public class Filme {
 	private String nome; 
 	private String dataLancamento; 
 	private String diretor; 
-	private String bairro; 
-	private String	 tempo; 
+	private String tempo; 
 	private String genero;
 	private String classificacao;
 	private String descricao;
 	private int codfuncionario;
 	
 	public void mostrar(){
-        System.out.println("["+codfilme+","+nome+","+dataLancamento+","+diretor+","+bairro+","+tempo+","+genero+","+classificacao+","+descricao+","+codfuncionario+"]");
+        System.out.println("["+codfilme+","+nome+","+dataLancamento+","+diretor+","+tempo+","+genero+","+classificacao+","+descricao+","+codfuncionario+"]");
     }
 	
 	public Filme() {
@@ -23,14 +22,13 @@ public class Filme {
 	}
 	
 
-	public Filme(int codfilme, String nome, String dataLancamento, String diretor, String bairro, String tempo,
+	public Filme(int codfilme, String nome, String dataLancamento, String diretor, String tempo,
 			String genero, String classificacao, String descricao, int codfuncionario) {
 		super();
 		this.codfilme = codfilme;
 		this.nome = nome;
 		this.dataLancamento = dataLancamento;
 		this.diretor = diretor;
-		this.bairro = bairro;
 		this.tempo = tempo;
 		this.genero = genero;
 		this.classificacao = classificacao;
@@ -68,14 +66,6 @@ public class Filme {
 
 	public void setDiretor(String diretor) {
 		this.diretor = diretor;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
 	}
 
 	public String getTempo() {
