@@ -5,6 +5,13 @@
  */
 package view;
 
+import integracaobd.BDLocal;
+import javax.swing.JOptionPane;
+import model.Funcionario;
+import model.FuncionarioDAO;
+import model.Plano;
+import model.PlanoDAO;
+
 /**
  *
  * @author Jefer
@@ -15,7 +22,22 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
      * Creates new form TelaCadastroPlano
      */
     public TelaCadastroPlano() {
+                
+        Plano p = new Plano();
+        PlanoDAO pdao = new PlanoDAO();
+        BDLocal bd = new BDLocal(); 
+        bd.getConnection();
+        
         initComponents();
+    }
+    
+    public void limparCaixas(){
+        
+        tfIdFuncionario.setText("");
+        tfDescricao.setText("");
+	tfPreco.setText("");
+        
+        tfIdFuncionario.requestFocus();        
     }
 
     /**
@@ -26,13 +48,14 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tfNome = new javax.swing.JTextField();
+        tfDescricao = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        tfNome9 = new javax.swing.JTextField();
+        tfPreco = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfNome3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tfIdFuncionario = new javax.swing.JTextField();
+        btSalvar = new javax.swing.JButton();
+        btNovo = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de plano:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
@@ -49,16 +72,16 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
-                    .addComponent(tfNome9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5)
-                    .addComponent(tfNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfIdFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -67,24 +90,31 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tfNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfIdFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNome9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33))
         );
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btSalvarActionPerformed(evt);
+            }
+        });
+
+        btNovo.setText("Novo");
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoActionPerformed(evt);
             }
         });
 
@@ -98,7 +128,9 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(btNovo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btSalvar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -107,7 +139,9 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSalvar)
+                    .addComponent(btNovo))
                 .addGap(23, 23, 23))
         );
 
@@ -115,7 +149,7 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         //        JOptionPane.showMessageDialog(null, "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
             //        + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
         //        //
@@ -126,7 +160,20 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
             //            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!\n" + "Nome: "+tfNome.getText()+";\n"+ "Data de nascimento: " +  jiData.getText() + ";\n" + "Sexo: "+jcSexo.getSelectedItem().toString()+";\n"
                 //                + "CPF: " + jiCPF.getText() +  ";\n" + "Contato: " + jiTelefone.getText() + ";\n" + "Celular: " + jiCelular.getText() + ";\n" + "E-mail: " +  tfEmail.getText());
             //        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+            
+            p.setCodfuncionario(Integer.parseInt(tfIdFuncionario.getText()));
+            p.setDescricao(tfDescricao.getText());
+            p.setPreco("" + tfPreco.getText());
+
+                JOptionPane.showMessageDialog(btSalvar, pdao.salvar(p));
+
+                limparCaixas();
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+        
+        limparCaixas();
+    }//GEN-LAST:event_btNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,13 +211,18 @@ public class TelaCadastroPlano extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btNovo;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfNome3;
-    private javax.swing.JTextField tfNome9;
+    private javax.swing.JTextField tfDescricao;
+    private javax.swing.JTextField tfIdFuncionario;
+    private javax.swing.JTextField tfPreco;
     // End of variables declaration//GEN-END:variables
+    private PlanoDAO pdao;
+    private Plano p;
+    private BDLocal bd;
 }
+
