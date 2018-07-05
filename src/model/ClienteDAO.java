@@ -16,63 +16,69 @@ public class ClienteDAO {
 	}
 	
 	public String salvar(Cliente c) {
-		sql = "INSERT INTO funcionario(nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
-				+ "VALUES(?,?,?,	CONVERT(DATE, ?, 103),?,?,?,?,?,?,?,?)";
+		sql = "INSERT INTO cliente(codigo,nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setString(1, c.getNome());
-			bd.st.setString(7, c.getCpf());
-			bd.st.setString(6, c.getRg());
-			bd.st.setString(8, c.getDataNasc());
-			bd.st.setString(9, c.getTelefone());
-			bd.st.setString(10, c.getEmail());
-			bd.st.setString(2, c.getEndereco());
-			bd.st.setString(3, c.getCidade());
-			bd.st.setString(5, c.getCep());
-			bd.st.setString(4, c.getBairro());			
-			bd.st.setString(11, c.getCelular());
-			bd.st.setString(12, c.getSexo());
+                        bd.st.setInt(1, c.getCodigo());
+			bd.st.setString(2, c.getNome());
+                        bd.st.setString(3, c.getEndereco());
+                        bd.st.setString(4, c.getCidade());
+                        bd.st.setString(5, c.getBairro());
+                        bd.st.setString(6, c.getCep());
+                        bd.st.setString(7, c.getRg());
+                        bd.st.setString(8, c.getCpf());
+                        bd.st.setString(9, c.getDataNasc());
+                        bd.st.setString(10, c.getTelefone());
+                        bd.st.setString(11, c.getCelular());
+                        bd.st.setString(12, c.getSexo());
+			bd.st.setString(13, c.getEmail());
+			
 			bd.st.executeUpdate();
 			
 			men = "Cliente cadastrado com sucesso!";
 		}
-//		catch (SQLException erro) {
-//				int pos = erro.toString().indexOf("PRIMARY KEY");
-//				if(pos>=0) { //inicio da altera��o
-//					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
-//				          "where id_cliente = ?";
-//					try {
-//						
-//						bd.st.setString(1, c.getNome());
-//						bd.st.setString(2, c.getEndereco());
-//						bd.st.setString(3, c.getCidade());
-//						bd.st.setString(4, c.getBairro());
-//						bd.st.setString(5, c.getCep());
-//						bd.st.setString(6, c.getRg());
-//						bd.st.setString(7, c.getCpf());
-//						bd.st.setString(8, c.getDataNasc());
-//						bd.st.setString(9, c.getTelefone());
-//						bd.st.setString(10, c.getEmail());
-//						bd.st.setInt(11, c.getCelular());
-//						bd.st.setString(12, c.getSexo());	
-////						bd.st.setInt(13, c.getCodigo());
-//						bd.st.executeUpdate();
-//						men = "Cliente alterado com sucesso!";
-//					}
+		catch (SQLException erro) {
+				int pos = erro.toString().indexOf("PRIMARY KEY");
+				if(pos>=0) { //inicio da altera��o
+					sql = "update cliente set nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+				          "where id_cliente = ?";
+					try {
+						
+						bd.st.setString(1, c.getNome());
+						bd.st.setString(2, c.getEndereco());
+						bd.st.setString(3, c.getCidade());
+						bd.st.setString(4, c.getBairro());
+						bd.st.setString(5, c.getCep());
+						bd.st.setString(6, c.getRg());
+						bd.st.setString(7, c.getCpf());
+						bd.st.setString(8, c.getDataNasc());
+						bd.st.setString(9, c.getTelefone());
+						bd.st.setString(10, c.getEmail());
+						bd.st.setString(11, c.getCelular());
+						bd.st.setString(12, c.getSexo());	
+						bd.st.setInt(13, c.getCodigo());
+						bd.st.executeUpdate();
+						men = "Cliente alterado com sucesso!";
+					}
 		catch(SQLException e) {
                     men = "Falha na alteração!";
 		}
 		finally {
                     bd.close();
 		}	
-		return men;
-		}
+                                }
+                                
+                }
+                
+                return men;
+        }
 	
 	public String excluir(int codigo) {
 		
-		sql = "delete from cliente where id_cliente = ?";
+		sql = "delete from cliente where id_funcionario = ?";
 		
 		try {
 			
@@ -84,16 +90,16 @@ public class ClienteDAO {
 			
 			if (r==1) {
 				
-				men = "Exclu�do com sucesso!";		
+				men = "Excluido com sucesso!";		
 				
 			} else {
 				
-				men = "Cliente n�o encontrado!";
+				men = "Funcionario nao encontrado!";
 			}
 			
 		} catch (Exception e) {
 			
-			men = "Falha na exclus�o" + e.toString();
+			men = "Falha na exclusao" + e.toString();
 		}
 		finally {
 			bd.close();

@@ -12,10 +12,11 @@ public class Cliente {
 	private String rg;
 	private String cpf;
 	private String dataNasc; 
-	private String telefone; 
-	private String email; 
+	private String telefone;
 	private String celular;
 	private String sexo; 
+        private String email; 
+  
 	
 	
 	public Cliente() {
@@ -36,7 +37,7 @@ public class Cliente {
 	public Cliente(/*int codigo*/String nome, String endereco, String cidade, String bairro, String cep, String rg,
 			String cpf, String dataNasc, String telefone, String email, String celular, String sexo) {
 		super();
-//		this.codigo = codigo;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cidade = cidade;
@@ -52,14 +53,14 @@ public class Cliente {
 	}
 
 
-//	public int getCodigo() {
-//		return codigo;
-//	}
-//
+	public int getCodigo() {
+		return codigo;
+	}
 
-//	public void setCodigo(int codigo) {
-//		this.codigo = codigo;
-//	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 
 	public String getNome() {

@@ -310,6 +310,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         });
 
         btExcluir.setText("Excluir");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -362,32 +367,64 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
            
                 f = fdao.localizar(Integer.parseInt(tfCodigo.getText()));
 				
-				if (f != null) {
+                    if (f != null) {
 					
-					tfCodigo.setText("" + f.getCodigo());
-					tfNome.setText(f.getNome());
-					tfRG.setText("" + f.getRg());
-                                        tfCPF.setText("" + f.getCpf());
-                                        tfEndereco.setText("" + f.getEndereco());
-                                        tfData.setText("" + f.getDataNasc());
-                                        tfSexo.setText("" + f.getSexo());
-                                        tfBairro.setText("" + f.getBairro());
-                                        tfCep.setText("" + f.getCep());
-                                        tfTelefone.setText("" + f.getTelefone());
-                                        tfCelular.setText("" + f.getCelular());
-                                        tfEmail.setText("" + f.getEmail());
+			tfCodigo.setText("" + f.getCodigo());
+			tfNome.setText(f.getNome());
+			tfRG.setText("" + f.getRg());
+                        tfCPF.setText("" + f.getCpf());
+                        tfEndereco.setText("" + f.getEndereco());
+                        tfData.setText("" + f.getDataNasc());
+                        tfSexo.setText("" + f.getSexo());
+                        tfBairro.setText("" + f.getBairro());
+                        tfCep.setText("" + f.getCep());
+                        tfTelefone.setText("" + f.getTelefone());
+                        tfCelular.setText("" + f.getCelular());
+                        tfEmail.setText("" + f.getEmail());
                                        
-				} else {
-					JOptionPane.showMessageDialog(btLocalizar, "Produto nao encontrado");
-					limparCaixas();
+			} else {
+                        
+                            JOptionPane.showMessageDialog(btLocalizar, "Produto nao encontrado");
+                            limparCaixas();
+                            
 				}
         
     }//GEN-LAST:event_btLocalizarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+
+
+                f.setCodigo(Integer.parseInt(tfCodigo.getText()));
+                f.setNome(tfNome.getText());
+                f.setRg(tfRG.getText());
+                f.setCpf(tfCPF.getText()); 
+                f.setEndereco(tfEndereco.getText());
+                f.setDataNasc(tfData.getText());
+                f.setSexo(tfSexo.getText());
+                f.setBairro(tfBairro.getText());
+                f.setCep(tfCep.getText()); 
+                f.setTelefone(tfTelefone.getText());
+                f.setCelular(tfCelular.getText());
+                f.setEmail(tfEmail.getText());
+
+                JOptionPane.showMessageDialog(btSalvar, fdao.salvar(f));
+
+                limparCaixas();
         
         
     }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+           
+            int r = JOptionPane.showConfirmDialog(btExcluir, "Tem certeza?");
+				
+		if (r == 0) { // significa que o usu�rio apertou o primeiro bot�oo, o bot�o sim
+					
+                    JOptionPane.showMessageDialog(btExcluir, fdao.excluir(Integer.parseInt(tfCodigo.getText())));
+				
+		}
+        
+    }//GEN-LAST:event_btExcluirActionPerformed
 
     /**
      * @param args the command line arguments
