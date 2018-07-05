@@ -398,8 +398,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btLocalizarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-
-        
+                
+                Funcionario f = new Funcionario();
+                
                 f.setCodigo(Integer.parseInt(tfCodigo.getText()));
                 f.setNome(tfNome.getText());
                 f.setRg(tfRG.getText());
