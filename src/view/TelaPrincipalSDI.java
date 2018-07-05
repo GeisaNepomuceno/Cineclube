@@ -5,12 +5,8 @@
  */
 package view;
 
-import view.TelaAtualizarCadastroFilmes;
-import view.TelaAtualizarCadastroFuncionario;
+
 import view.TelaCadastroFilmes;
-import view.TelaCadastroUsuarioSDI;
-import view.TelaExcluirFilmes;
-import view.TelaExcluirFuncionario;
 
 /**
  *
