@@ -66,14 +66,12 @@ public class FilmeDAO {
 					}
 		catch(SQLException e) {
                     men = "Falha na alteração!";
-		}
-		finally {
-                    bd.close();
-		}	
-                                }
-                                
+		}			
+                                }                                
                 }
-                
+		finally {
+            bd.close();
+				}              
                 return men;
         }
 	
@@ -148,9 +146,9 @@ public Filme localizar(int codigo) {//METODO SELECT
 	return c;
 }
 
-public List<Filme> getFilmes() {//METODO LISTAR TODOS OS CLIENTES (LISTA)
+public List<Filme> getFilmes() {//METODO LISTAR TODOS OS FILMES (LISTA)
 	
-	List<Filme> lista = new ArrayList<Filme>(); // Criar uma lista de produtos
+	List<Filme> lista = new ArrayList<Filme>(); // Criar uma lista
 	
 	// ler o banco do comeï¿½o ao fim
 	sql = "select * from filme";
@@ -174,7 +172,7 @@ public List<Filme> getFilmes() {//METODO LISTAR TODOS OS CLIENTES (LISTA)
 			c.setDescricao(bd.rs.getString("Descrição"));
 			c.setCodfuncionario(bd.rs.getInt("Código funcionário"));
 			
-			lista.add(c); // adicionando o produto na lista
+			lista.add(c); // adicionando na lista
 		}
 
 	} 

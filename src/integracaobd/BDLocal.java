@@ -37,8 +37,8 @@ public class BDLocal {
 	}
 	
 	public void close() {
-		try { if(rs!=null) rs.close(); } catch(SQLException erro) {}
-		try { if(st!=null) st.close(); } catch(SQLException erro) {}
+		try { if(rs!=null) rs.close(); } catch(SQLException erro) {erro.toString();}
+		try { if(st!=null) st.close(); } catch(SQLException erro) {erro.toString();}
 		try { 
 			if(con!=null) {
 				con.close();
