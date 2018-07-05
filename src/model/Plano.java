@@ -1,52 +1,53 @@
 package model;
 
-public class Produto {
-	private int codigo;
-	private String nome;
+public class Plano {
+//	private int codigo;
+	private String descricao;
 	private double preco;
-	private int estoque;
+	private int id_func; 
+	
+	public int getId_func() {
+		return id_func;
+	}
+
+	public void setId_func(int id_func) {
+		this.id_func = id_func;
+	}
+
+	
 
 	public void mostrar() {
-		System.out.println("["+codigo+","+nome+","+preco+","+estoque+"]");
+		System.out.println("["+descricao+","+preco+"]");
 	}
 	
 	public String toString() {
-		return ("["+codigo+","+nome+","+preco+","+estoque+"]");
+		return ("["+preco+","+descricao+"]");
 	}
 	
-	public Produto() {
+	public Plano() {
 	}
-	
-	public Produto(int codigo, String nome, double preco, int estoque) {
-		this.codigo = codigo;
-		this.nome = nome;
-		this.preco = preco;
-		this.estoque = estoque;
+
+	public String getDescricao() {
+		return descricao;
 	}
-	public int getCodigo() {
-		return codigo;
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 	public double getPreco() {
 		return preco;
 	}
+
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	public int getEstoque() {
-		return estoque;
+
+	public Plano(String descricao, double preco) {
+		super();
+		this.descricao = descricao;
+		this.preco = preco;
 	}
-	public void setEstoque(int estoque) {
-		this.estoque = estoque;
-	}
-	
 	
 }
+	

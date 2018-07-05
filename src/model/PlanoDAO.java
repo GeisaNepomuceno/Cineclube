@@ -6,24 +6,25 @@ import java.util.List;
 
 import services.BD;
 
-public class ProdutoDAO{
+public class PlanoDAO{
 
 	private String sql, men;
 	private BD bd;
 	
-	public ProdutoDAO() {
+	public PlanoDAO() {
 		bd = new BD();
 	}
 	
-	public String salvar(Produto p) {
-		sql = "insert into produtos values(?,?,?,?)";
+	public String salvar(Plano p) {
+		sql = "INSERT INTO plano(descricao,preco,id_funcionario) VALUES (?,?,?)";    
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, p.getCodigo());
-			bd.st.setString(2, p.getNome());
-			bd.st.setDouble(3, p.getPreco());
-			bd.st.setInt(4, p.getEstoque());
+			bd.st.setString(1, p.getDescricao());
+			bd.st.setDouble(2, p.getPreco());
+			bd.st.setInt(3, p.getId_func());
+			
+	
 			bd.st.executeUpdate();
 			men = "Produto gravado com sucesso!";
 		}
@@ -34,12 +35,11 @@ public class ProdutoDAO{
 			          "where codigo = ?";
 				try {
 					bd.st = bd.con.prepareStatement(sql);
-					bd.st.setString(1, p.getNome());
+					bd.st.setString(1, p.getDescricao());
 					bd.st.setDouble(2, p.getPreco());
-					bd.st.setInt(3, p.getEstoque());
-					bd.st.setInt(4, p.getCodigo());					
+					bd.st.setDouble(3, p.getId_func());
 					bd.st.executeUpdate();
-					men = "Produto alterado com sucesso!";
+					men = "Plano alterado com sucesso!";
 				}
 				catch(SQLException e) {
 					men = "Falha na alteração!";
@@ -54,7 +54,7 @@ public class ProdutoDAO{
 	
 	public String excluir(int codigo) {
 		
-		sql = "delete from produtos where codigo = ?";
+		sql = "delete from plano where codigo = ?";
 		try {
 			
 			bd.getConnection(); // conexao com o banco
@@ -84,12 +84,12 @@ public class ProdutoDAO{
 		return men;
 	}
 	
-	public Produto localizar(int codigo) {
+	public Plano localizar(int codigo) {
 		
-		sql = "select * from produtos where codigo = ?";
+		sql = "select * from plano where codigo = ?";
 
 		// Criando o produto
-		Produto p = new Produto();
+		Plano p = new Plano();
 		
 		try {
 			
@@ -100,12 +100,12 @@ public class ProdutoDAO{
 			
 			
 			// Ou retorna um produto ou um objeto nulo
-			if (bd.rs.next()) { // Copia banco no objeto produto
+			if (bd.rs.next()) { // Copia banco no objeto Plano
 				
-				p.setCodigo(bd.rs.getInt("codigo")); // transferindo do banco para o objeto
-				p.setNome(bd.rs.getString("nome"));
+				 // transferindo do banco para o objeto
+				p.setDescricao(bd.rs.getString("descricao"));
 				p.setPreco(bd.rs.getDouble("preco"));
-				p.setEstoque(bd.rs.getInt("estoque"));
+				
 			} else {
 				
 				p = null;
@@ -121,12 +121,12 @@ public class ProdutoDAO{
 		return p;
 	}
 	
-	public List<Produto> getProdutos() {
+	public List<Plano> getPlanos() {
 		
-		List<Produto> lista = new ArrayList<Produto>(); // Criar uma lista de produtos
+		List<Plano> lista = new ArrayList<Plano>(); // Criar uma lista de Planos
 		
 		// ler o banco do come�o ao fim
-		sql = "select * from produtos";
+		sql = "select * from plano";
 		
 		try {
 			
@@ -136,14 +136,13 @@ public class ProdutoDAO{
 			
 			while (bd.rs.next()) {
 				
-				Produto p = new Produto();
+				Plano p = new Plano();
 				
-				p.setCodigo(bd.rs.getInt("codigo")); // transferindo do banco para o objeto
-				p.setNome(bd.rs.getString("nome"));
+				p.setDescricao(bd.rs.getString("codigo"));// transferindo do banco para o objeto
 				p.setPreco(bd.rs.getDouble("preco"));
-				p.setEstoque(bd.rs.getInt("estoque"));
+				p.setId_func(bd.rs.getInt("id_funcionario"));
 				
-				lista.add(p); // adicionando o produto na lista
+				lista.add(p); // adicionando o Plano na lista
 			}
 
 		} catch (Exception e) {
