@@ -158,15 +158,25 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
 
         jMenuItem17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/film_go.png"))); // NOI18N
         jMenuItem17.setText("Pesquisar");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem17);
 
         jMenuBar1.add(jMenu6);
 
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/film.png"))); // NOI18N
-        jMenu8.setText("Votação de filmes");
+        jMenu8.setText("Eleicao");
 
         jMenuItem25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/film_go.png"))); // NOI18N
         jMenuItem25.setText("Pesquisar");
+        jMenuItem25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem25ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem25);
 
         jMenuBar1.add(jMenu8);
@@ -176,6 +186,11 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
 
         jMenuItem21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/film_go.png"))); // NOI18N
         jMenuItem21.setText("Pesquisar");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem21);
 
         jMenuBar1.add(jMenu7);
@@ -216,6 +231,18 @@ public class TelaPrincipalSDI extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         new TelaCadastroFilmes().setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        new TelaCadastroPlano().setVisible(true);
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem25ActionPerformed
+        new TelaCadastrarEleicao().setVisible(true);
+    }//GEN-LAST:event_jMenuItem25ActionPerformed
+
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        new TelaCadastrarSessao().setVisible(true);
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
 
     /**
      * @param args the command line arguments
