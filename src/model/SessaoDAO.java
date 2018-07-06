@@ -24,16 +24,17 @@ public class SessaoDAO {
 	}
 	
 	public String salvar(Sessao p) {
-		sql = "insert into sessao values(?,?,?,?,?,?)";
+		sql = "insert into sessao(id_sessao, animacao, duracao, data, id_funcionario, id_filme)" 
+				+ "values(?,?,?,?,?,?)";
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
 			bd.st.setInt(1, p.getCodigo());
 			bd.st.setString(2, p.getAnimacao());
 			bd.st.setString(3, p.getDuracao());
-                        bd.st.setString(4, p.getData());
-                        bd.st.setString(5, p.getIdFuncionario());
-                        bd.st.setString(6, p.getIdFilme());
+            bd.st.setString(4, p.getData());
+            bd.st.setString(5, p.getIdFuncionario());
+            bd.st.setString(6, p.getIdFilme());
 			
 			bd.st.executeUpdate();
 			men = "Sessao gravada com sucesso!";
@@ -46,11 +47,11 @@ public class SessaoDAO {
 				try {
 					bd.st = bd.con.prepareStatement(sql);
 					bd.st.setString(1, p.getAnimacao());
-                                        bd.st.setString(2, p.getDuracao());
-                                        bd.st.setString(3, p.getData());
-                                        bd.st.setString(4, p.getIdFuncionario());
-                                        bd.st.setString(5, p.getIdFilme());	
-                                        bd.st.setInt(6, p.getCodigo());
+                    bd.st.setString(2, p.getDuracao());
+                    bd.st.setString(3, p.getData());
+                    bd.st.setString(4, p.getIdFuncionario());
+                    bd.st.setString(5, p.getIdFilme());	
+                    bd.st.setInt(6, p.getCodigo());
                                         
 					bd.st.executeUpdate();
 					men = "Sessao alterada com sucesso!";
@@ -82,10 +83,10 @@ public class SessaoDAO {
 			
 			if (r == 1) {
 				
-				men = "Sessao exclu√≠da com sucesso";
+				men = "Sess„o deletada!";
 			} else {
 				
-				men = "Sessao n√£o encontrada!";
+				men = "Sessao n„o encontrada!";
 			}
 			
 		} catch (Exception e) {
@@ -119,9 +120,9 @@ public class SessaoDAO {
 				p.setCodigo(bd.rs.getInt("id_sessao")); // transferindo do banco para o objeto
 				p.setAnimacao(bd.rs.getString("animacao"));
 				p.setDuracao(bd.rs.getString("duracao"));
-                                p.setData(bd.rs.getString("data"));
-                                p.setIdFuncionario(bd.rs.getString("id_funcionario"));
-                                p.setIdFilme(bd.rs.getString("id_filme"));
+                p.setData(bd.rs.getString("data"));
+                p.setIdFuncionario(bd.rs.getString("id_funcionario"));
+                p.setIdFilme(bd.rs.getString("id_filme"));
                                 
 			} else {
 				

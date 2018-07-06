@@ -16,28 +16,25 @@ public class FilmeDAO {
 	}
 	
 	public String salvar(Filme c) {//METODO INSERIR OU ATUALIZAR
-		sql = "INSERT\r\n" + 
-				"	INTO filme(id_filme,nome,datalancamento,diretor,tempo,genero,classificacao,descricao,id_funcionario)\r\n" + 
-				"VALUES\r\n" + 
+		sql = "INSERT" + 
+				"	INTO filme(id_filme, nome, datalancamento, diretor, tempo, genero, classificacao, descricao, id_funcionario)" + 
+				"VALUES" + 
 				"	(?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
-                        bd.st.setInt(1, c.getCodfilme());
-                        bd.st.setString(2, c.getNome());
-                        bd.st.setString(3, c.getDataLancamento());
-                        bd.st.setString(4, c.getDiretor());
-                        bd.st.setString(5, c.getTempo());
-                        bd.st.setString(6, c.getGenero());
-                        bd.st.setString(7, c.getClassificacao());
-                        bd.st.setString(8, c.getDescricao());
-                        bd.st.setInt(9, c.getCodfuncionario());
-                        
-                        
+            bd.st.setInt(1, c.getCodfilme());
+            bd.st.setString(2, c.getNome());
+            bd.st.setString(3, c.getDataLancamento());
+            bd.st.setString(4, c.getDiretor());
+            bd.st.setString(5, c.getTempo());
+            bd.st.setString(6, c.getGenero());
+            bd.st.setString(7, c.getClassificacao());
+            bd.st.setString(8, c.getDescricao());
+            bd.st.setInt(9, c.getCodfuncionario());
 
 			bd.st.executeUpdate();
-			
 			men = "Filme cadastrado com sucesso!";
 		}
 		catch (SQLException erro) {
