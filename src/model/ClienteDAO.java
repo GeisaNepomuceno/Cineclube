@@ -44,7 +44,7 @@ public class ClienteDAO {
 		catch (SQLException erro) {
 				int pos = erro.toString().indexOf("PRIMARY KEY");
 				if(pos>=0) { 
-					sql = "update cliente set id_cliente=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, "
+					sql = "update cliente set id_cliente=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, rg=?, cpf=?,"
 							+ "datanascimento=?, telefone=?, email=?, celular=?, sexo=?, id_funcionario=? "+
 				          "where id_cliente = ?";
 					try {
