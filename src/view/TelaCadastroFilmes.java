@@ -274,6 +274,9 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
+    	Filme f = new Filme();
+    	FilmeDAO fdao = new FilmeDAO();
+    	
         f.setCodfilme(Integer.parseInt(tfCodigo.getText()));
         f.setNome(tfTitulo.getText());
         f.setDataLancamento(tfData.getText());
