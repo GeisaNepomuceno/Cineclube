@@ -178,7 +178,7 @@ public class TelaCadastrarEleicao extends javax.swing.JFrame {
         
         p.setId(Integer.parseInt(tfEleicao.getText()));
         p.setDescricao(tfDescricao.getText());
-        p.setId_funcionario("" + tfIdFuncionario.getText());
+        p.setId_funcionario(tfIdFuncionario.getText());
 
         JOptionPane.showMessageDialog(btSalvar, pdao.salvar(p));
 
@@ -186,23 +186,13 @@ public class TelaCadastrarEleicao extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLocalizarActionPerformed
-        f = fdao.localizar(Integer.parseInt(tfCodigo.getText()));
-				
+        EleicaoDAO fdao = new EleicaoDAO();
+        Eleicao f = new Eleicao();
+        f = fdao.localizar(Integer.parseInt(tfEleicao.getText()));
                     if (f != null) {
-					
-			tfCodigo.setText("" + f.getCodigo());
-			tfNome.setText(f.getNome());
-			tfRG.setText("" + f.getRg());
-                        tfCPF.setText("" + f.getCpf());
-                        tfEndereco.setText("" + f.getEndereco());
-                        tfData.setText("" + f.getDataNasc());
-                        tfSexo.setText("" + f.getSexo());
-                        tfBairro.setText("" + f.getBairro());
-                        tfCep.setText("" + f.getCep());
-                        tfTelefone.setText("" + f.getTelefone());
-                        tfCelular.setText("" + f.getCelular());
-                        tfEmail.setText("" + f.getEmail());
-                                       
+			tfEleicao.setText(""+f.getId());
+                        tfDescricao.setText(""+f.getDescricao());
+                        tfIdFuncionario.setText(""+f.getId_funcionario());  
 			} else {
                         
                             JOptionPane.showMessageDialog(btLocalizar, "Produto nao encontrado");
@@ -212,7 +202,14 @@ public class TelaCadastrarEleicao extends javax.swing.JFrame {
     }//GEN-LAST:event_btLocalizarActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        // TODO add your handling code here:
+        EleicaoDAO pdao = new EleicaoDAO();
+        
+        int r = JOptionPane.showConfirmDialog(btExcluir, "Tem certeza?");
+				
+				if (r == 0) { // significa que o usu�rio apertou o primeiro bot�oo, o bot�o sim
+					
+					JOptionPane.showMessageDialog(btExcluir, pdao.excluir(Integer.parseInt(tfEleicao.getText())));
+				}
     }//GEN-LAST:event_btExcluirActionPerformed
 
     /**
