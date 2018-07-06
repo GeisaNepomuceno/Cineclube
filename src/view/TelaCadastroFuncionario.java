@@ -369,11 +369,15 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         
+    	Funcionario f = new Funcionario();
+    	FuncionarioDAO fdao = new FuncionarioDAO();
+    	
         f.setCodigo(Integer.parseInt(tfCodigo.getText()));
         f.setNome(tfNome.getText());
         f.setRg(tfRG.getText());
         f.setCpf(tfCPF.getText()); 
         f.setEndereco(tfEndereco.getText());
+        f.setCidade(tfCidade.getText());
         f.setDataNasc(tfData.getText());
         f.setSexo(tfSexo.getText());
         f.setBairro(tfBairro.getText());
@@ -384,7 +388,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(btSalvar, fdao.salvar(f));
 
-        limparCaixas();
+
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed

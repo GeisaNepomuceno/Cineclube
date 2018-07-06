@@ -16,15 +16,15 @@ public class FuncionarioDAO {
 	}
 	
 	public String salvar(Funcionario f) {
-		sql = "INSERT INTO funcionario(id_funcionario,nome,cpf,rg,datanascimento,telefone,email,endereco,cidade,cep,bairro,celular,sexo) "
+		sql = "INSERT INTO funcionario(id_funcionario, nome, endereco, cidade, bairro, cep, rg, cpf, datanascimento, telefone, email, celular, sexo) "
 				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			bd.getConnection();
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, f.getCodigo());
-			bd.st.setString(2, f.getNome());
-			bd.st.setString(3, f.getEndereco());
+			bd.st.setInt(1, f.getCodigo()); //id
+			bd.st.setString(2, f.getNome()); //nome
+			bd.st.setString(3, f.getEndereco()); 
 			bd.st.setString(4, f.getCidade());
 			bd.st.setString(5, f.getBairro());
 			bd.st.setString(6, f.getCep());
@@ -42,7 +42,7 @@ public class FuncionarioDAO {
 		catch (SQLException erro) {
 				int pos = erro.toString().indexOf("PRIMARY KEY");
 				if(pos>=0) { //inicio da altera��o
-					sql = "update funcionario set id_funcionario=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, cpf=?, rg=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
+					sql = "update funcionario set id_funcionario=?, nome=?, endereco=?, cidade=?, bairro=?, cep=?, rg=?, cpf=?, datanascimento=?, telefone=?, email=?, celular=?, sexo=? "+
 				          "where id_funcionario = ?";
 					try {
 						
