@@ -65,7 +65,7 @@ public class FuncionarioDAO {
 						men = "Funcionario alterado com sucesso!";
 					}
 		catch(SQLException e) {
-                    men = "Falha na alteração!";
+                    men = "Falha na alteracao!";
 		}					
                     }
                 }
@@ -123,7 +123,7 @@ public class FuncionarioDAO {
 			
 			if(bd.rs.next()) {
 				
-				c.setCodigo(bd.rs.getInt("Código"));
+				c.setCodigo(bd.rs.getInt("Cï¿½digo"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
@@ -170,7 +170,7 @@ public class FuncionarioDAO {
 				
 				Funcionario c = new Funcionario();
 				
-				c.setCodigo(bd.rs.getInt("Código"));
+				c.setCodigo(bd.rs.getInt("Cï¿½digo"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));

@@ -76,11 +76,11 @@ public class PlanoDAO {
 				
 			} else {
 				
-				men = "Cliente não encontrado!";
+				men = "Cliente nao encontrado!";
 			}	
 		} catch (Exception e) {
 			
-			men = "Falha na exclusão " + e.toString();
+			men = "Falha na exclusao " + e.toString();
 		}
 		
 		finally {
@@ -89,7 +89,7 @@ public class PlanoDAO {
 		return men;	
 	}
 	
-public Plano localizar(int codigo) {
+        public Plano localizar(int codigo) {
 		
 		sql = "select * from plano where id_plano = ?";
 		
@@ -104,10 +104,10 @@ public Plano localizar(int codigo) {
 			
 			if(bd.rs.next()) {
 				
-				p.setCodplano(bd.rs.getInt("Código plano"));
-				p.setDescricao(bd.rs.getString("Descrição"));
-				p.setPreco(bd.rs.getString("Preço"));
-				p.setCodfuncionario(bd.rs.getInt("Código funcionario"));
+				p.setCodplano(bd.rs.getInt("id_plano"));
+				p.setDescricao(bd.rs.getString("descricao"));
+				p.setPreco(bd.rs.getString("preco"));
+				p.setCodfuncionario(bd.rs.getInt("id_funcionario"));
 					
 			}
 			
@@ -123,43 +123,5 @@ public Plano localizar(int codigo) {
 		}
 		
 		return p;
-	}
-
-public List<Plano> getPlanos() {
-	
-	List<Plano> lista = new ArrayList<Plano>(); // Criar uma lista de produtos
-	
-	// ler o banco do comeï¿½o ao fim
-	sql = "select * from plano";
-	
-	try {
-		
-		bd.getConnection(); // conexao com o banco
-		bd.st = bd.con.prepareStatement(sql);
-		bd.rs = bd.st.executeQuery(); // rs um objeto em memï¿½ria que representa uma tabela com os dados do select, a primeira linha ï¿½ o header da coluna
-		
-		while (bd.rs.next()) {
-			
-			Plano p = new Plano();
-			
-			p.setCodplano(bd.rs.getInt("Código plano"));
-			p.setDescricao(bd.rs.getString("Descrição"));
-			p.setPreco(bd.rs.getString("Preço"));
-			p.setCodfuncionario(bd.rs.getInt("Código funcionario"));
-			
-			lista.add(p); // adicionando o produto na lista
-		}
-
-	} catch (Exception e) {
-
-		lista = null;
-	} finally {
-		
-		bd.close();
-	}
-	
-	return lista;
-}
-	
-	
+    }
 }

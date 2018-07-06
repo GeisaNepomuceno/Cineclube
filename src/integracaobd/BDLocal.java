@@ -27,7 +27,7 @@ public class BDLocal {
 			return true;
 		}
 		catch(ClassNotFoundException erro) {
-			System.out.println("Driver não encontrado");
+			System.out.println("Driver nao encontrado");
 			return false;
 		}
 		catch(SQLException erro) {

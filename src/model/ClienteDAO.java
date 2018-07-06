@@ -68,7 +68,7 @@ public class ClienteDAO {
 						men = "Cliente alterado com sucesso!";
 					}
 		catch(SQLException e) {
-                    men = "Falha na alteração!";
+                    men = "Falha na alteracao!";
 		}
                                 }
                                 
