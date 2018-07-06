@@ -16,9 +16,9 @@ public class FilmeDAO {
 	}
 	
 	public String salvar(Filme c) {//METODO INSERIR OU ATUALIZAR
-		sql = "INSERT\r\n" + 
-				"	INTO filme(id_filme,nome,datalancamento,diretor,tempo,genero,classificacao,descricao,id_funcionario)\r\n" + 
-				"VALUES\r\n" + 
+		sql = "INSERT" + 
+				"	INTO filme(id_filme,nome,datalancamento,diretor,tempo,genero,classificacao,descricao,id_funcionario)" + 
+				"VALUES" + 
 				"	(?,?,?,?,?,?,?,?,?)";
 		
 		try {

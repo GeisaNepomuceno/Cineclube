@@ -33,7 +33,7 @@ public class TelaCadastroFilmes extends javax.swing.JFrame {
             
         tfCodigo.setText("");
         tfTitulo.setText("");
-	tfData.setText("");
+        tfData.setText("");
         tfDiretor.setText("");
         tfCodFuncionario.setText("");
         tfDuracao.setText("");

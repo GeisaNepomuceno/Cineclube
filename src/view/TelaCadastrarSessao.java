@@ -7,6 +7,8 @@ package view;
 
 import integracaobd.BDLocal;
 import javax.swing.JOptionPane;
+
+import model.Filme;
 import model.Sessao;
 import model.SessaoDAO;
 
@@ -242,15 +244,18 @@ public class TelaCadastrarSessao extends javax.swing.JFrame {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-
-        f.setCodigo(Integer.parseInt(tfCodigo.getText()));
-        f.setAnimacao(tfAnimacao.getText());
-        f.setDuracao(tfDuracao.getText());
-        f.setData(tfData.getText());
-        f.setIdFuncionario(tfCodigoF.getText());
-        f.setIdFilme(tfCodigoFi.getText());
-
-        JOptionPane.showMessageDialog(btSalvar, fdao.salvar(f));
+    	
+    	Sessao s = new Sessao();
+    	SessaoDAO sdao = new SessaoDAO();
+    	
+    	s.setCodigo(Integer.parseInt(tfCodigo.getText()));
+    	s.setAnimacao(tfAnimacao.getText());
+    	s.setDuracao(tfDuracao.getText());
+    	s.setData(tfData.getText());
+    	s.setIdFuncionario(tfCodigoF.getText());
+    	s.setIdFilme(tfCodigoFi.getText());
+    
+        JOptionPane.showMessageDialog(btSalvar, sdao.salvar(s));
 
         limparCaixas();
     }//GEN-LAST:event_btSalvarActionPerformed
