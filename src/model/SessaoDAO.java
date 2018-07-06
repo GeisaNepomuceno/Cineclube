@@ -83,10 +83,10 @@ public class SessaoDAO {
 			
 			if (r == 1) {
 				
-				men = "Sessão deletada!";
+				men = "Sessao deletada!";
 			} else {
 				
-				men = "Sessao não encontrada!";
+				men = "Sessao nao encontrada!";
 			}
 			
 		} catch (Exception e) {

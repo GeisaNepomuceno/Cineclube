@@ -1,4 +1,6 @@
-package integracaobd;
+package teste;
+
+import integracaobd.*;
 
 public class TestLocal {
 

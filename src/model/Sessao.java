@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author irmão da geisa
+ * @author
  */
 public class Sessao {
         private int codigo; 
