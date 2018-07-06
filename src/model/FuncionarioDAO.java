@@ -123,7 +123,7 @@ public class FuncionarioDAO {
 			
 			if(bd.rs.next()) {
 				
-				c.setCodigo(bd.rs.getInt("C�digo"));
+				c.setCodigo(bd.rs.getInt("id_funcionario"));
 				c.setNome(bd.rs.getString("nome"));
 				c.setEndereco(bd.rs.getString("endereco"));
 				c.setCidade(bd.rs.getString("cidade"));
